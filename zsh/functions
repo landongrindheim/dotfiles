@@ -40,3 +40,8 @@ function take {
   mkdir $1
   cd $1
 }
+
+# Allows commit message without typing quotes (can't have quotes in the commit msg though).
+function gc {
+  git commit -m "$*"
+}
