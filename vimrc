@@ -333,7 +333,7 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <leader>n :call RenameFile()<cr>
+map <Leader>n :call RenameFile()<cr>
 
 " ========================================================================
 " End of things set by me.
