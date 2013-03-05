@@ -24,6 +24,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'koron/nyancat-vim'
+Bundle 'airblade/vim-gitgutter'
 
 " ================
 " Ruby stuff
@@ -320,6 +321,8 @@ function! OpenFactoryFile()
   end
 endfunction
 
+" Set gutter background to black
+highlight SignColumn ctermbg=black
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE (thanks Gary Bernhardt)
