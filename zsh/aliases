@@ -95,6 +95,8 @@ alias v='vim'
 alias vi='vim'
 alias vu='cd ~/code/vim-university'
 alias y='cd ~/code/ybuy'
+alias z='zeus'
+alias zs='zeus start'
 
 # Heroku staging
 alias staging-console='heroku run console --remote staging'
