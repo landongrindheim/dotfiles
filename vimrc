@@ -150,7 +150,7 @@ set smarttab
 set noincsearch
 set ignorecase smartcase
 set laststatus=2  " Always show status line.
-set number 
+set relativenumber
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
 set bg=light
