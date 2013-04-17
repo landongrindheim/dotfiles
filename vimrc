@@ -97,7 +97,7 @@ map <Leader>ss ds)i <esc>:w<cr>
 map <Leader>st :!ruby -Itest % -n "//"<left><left>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
-map <Leader>t :call RunCurrentTest()<CR>
+map <Leader>t :w<cr>:call RunCurrentTest()<CR>
 map <Leader>y :!rspec --drb %<cr>
 map <Leader>u :Runittest<cr>
 map <Leader>vc :RVcontroller<cr>
@@ -161,8 +161,8 @@ set tags=./tags;
 " Use _ as a word-separator
 " set iskeyword-=_
 
-" Use Ack instead of grep
-set grepprg=ack
+" Use Silver Searcher instead of grep
+set grepprg=ag
 
 " Get rid of the delay when hitting esc!
 set noesckeys
