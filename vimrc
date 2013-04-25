@@ -24,6 +24,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'koron/nyancat-vim'
+Bundle 'vim-scripts/ruby-matchit'
 
 " Clojure
 Bundle 'tpope/vim-foreplay'
