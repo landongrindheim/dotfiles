@@ -37,6 +37,7 @@ alias gcm="git commit -m"
 alias gco='git checkout'
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gdm='git diff master'
 alias get='sudo apt-get install'
 alias gg='git lg'
 alias gpush='echo "Use gp!" && git push'
