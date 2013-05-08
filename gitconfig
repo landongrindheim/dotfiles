@@ -31,3 +31,5 @@
 	enabled = 1
 [github]
 	user = r00k
+[merge]
+        ff = only
