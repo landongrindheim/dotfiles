@@ -239,7 +239,7 @@ function! RunCurrentTest()
     call SetTestFile()
 
     if match(expand('%'), '\.feature$') != -1
-      call SetTestRunner("!cucumber")
+      call SetTestRunner("!bin/cucumber")
       exec g:bjo_test_runner g:bjo_test_file
     elseif match(expand('%'), '_spec\.rb$') != -1
       call SetTestRunner("!bin/rspec")

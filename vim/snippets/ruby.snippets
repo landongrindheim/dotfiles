@@ -453,7 +453,7 @@ snippet spec
 	  ${2}
 	end
 snippet hc
-	page.should have_content(${1})
+	expect(page).to have_content(${1})
 snippet F
 	Factory(:${1})
 snippet cuke
