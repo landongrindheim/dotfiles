@@ -26,6 +26,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'koron/nyancat-vim'
 Bundle 'vim-scripts/ruby-matchit'
+Bundle 'elixir-lang/vim-elixir'
 
 " Clojure
 Bundle 'tpope/vim-foreplay'
@@ -48,6 +49,7 @@ augroup END
 
 let mapleader = ","
 
+map <Leader>ac :sp app/controllers/application_controller.rb<cr>
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 map <Leader>bb :!bundle install<cr>
 nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
