@@ -27,6 +27,10 @@ Bundle 'wincent/Command-T'
 Bundle 'koron/nyancat-vim'
 Bundle 'elixir-lang/vim-elixir'
 
+" nelstrom's plugin depends on kana's
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+
 " Clojure
 Bundle 'tpope/vim-foreplay'
 Bundle 'tpope/vim-classpath'
