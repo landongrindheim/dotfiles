@@ -25,7 +25,6 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'koron/nyancat-vim'
-Bundle 'vim-scripts/ruby-matchit'
 Bundle 'elixir-lang/vim-elixir'
 
 " Clojure
@@ -45,6 +44,9 @@ augroup myfiletypes
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
+
+" Enable built-in matchit plugin
+runtime macros/matchit.vim
 " ================
 
 let mapleader = ","
