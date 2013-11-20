@@ -29,8 +29,7 @@ alias dr='cd ~/Dropbox'
 alias drop='cd ~/Dropbox'
 alias fs='foreman start'
 alias -g G='| grep'
-alias gad='git add .'
-alias gadu='git add -u .'
+alias gad='git add --all .'
 alias gbc='gdc'
 alias gca='git commit -a'
 alias gcaa='git commit -a --amend -C HEAD'
@@ -120,9 +119,8 @@ alias production-tail='heroku logs --tail --remote production'
 
 # # Heroku databases
 
-# TODO: These need to to use pg:pull now
-alias db-pull-staging='heroku db:pull --remote staging --confirm `basename $PWD`-staging'
-alias db-pull-production='heroku db:pull --remote production --confirm `basename $PWD`-production'
+alias db-pull-staging='heroku pg:pull --remote staging --confirm `basename $PWD`-staging'
+alias db-pull-production='rake db:drop && heroku pg:pull --remote production --confirm `basename $PWD`-production'
 
 alias db-copy-production-to-staging='heroku pgbackups:restore DATABASE `heroku pgbackups:url --remote production` --remote staging  --confirm `basename $PWD`-staging'
 alias db-backup-production='heroku pgbackups:capture --remote production'
