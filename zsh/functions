@@ -30,7 +30,6 @@ function g {
     git status
   fi
 }
-compdef g=git
 
 function rrg {
   rake routes | grep $1
