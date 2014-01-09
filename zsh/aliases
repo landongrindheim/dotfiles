@@ -6,6 +6,7 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
+alias ack='ag'
 alias amend="git commit --amend"
 alias asu="cd ~/code/rails/activesupport"
 alias aliases='vim ~/.dotfiles/zsh/aliases'
@@ -101,6 +102,7 @@ alias sync='git add -u . && git commit -m "Minor changes. Commit message skipped
 alias tail-logs='heroku logs -t'
 alias track='git checkout -t'
 alias warmup='vim ~/Dropbox/barbershop/warmups/ideas.txt'
+alias weekly-iteration='vim ~/Dropbox/work/thoughtbot/notes/weekly-iteration/recording-process.txt'
 alias worknotes='vim ~/Dropbox/work/thoughtbot/notes'
 alias u='cd ..'
 alias v='vim'
