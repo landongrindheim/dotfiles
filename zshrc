@@ -22,7 +22,7 @@ stty stop undef
 # RVM 
 [[ -s "/Users/ben/.rvm/scripts/rvm" ]] && source "/Users/ben/.rvm/scripts/rvm"
 
-# Source my custom files after oh-my-zsh so I can override things.
+# Sourcing of other files
 source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/functions
 
