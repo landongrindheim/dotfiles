@@ -15,6 +15,7 @@ function git-done {
 function git-nuke {
   git branch -D $1 && git push origin :$1
 }
+compdef _git git-nuke=git-checkout
 
 function git-on-master {
   branch=`git_branch_name`
