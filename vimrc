@@ -33,6 +33,10 @@ Bundle 'tpope/vim-foreplay'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 
+" Colors
+Bundle 'nanotech/jellybeans.vim'
+colorscheme jellybeans
+
 " ================
 " Ruby stuff
 " ================
