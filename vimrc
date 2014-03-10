@@ -133,6 +133,8 @@ map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 map <C-h> :nohl<cr>
 imap <C-l> :<Space>
+" Note that remapping C-s requires flow control to be disabled
+" (e.g. in .bashrc or .zshrc)
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
