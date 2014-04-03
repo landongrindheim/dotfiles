@@ -105,16 +105,11 @@ alias sync='git add -u . && git commit -m "Minor changes. Commit message skipped
 alias tail-logs='heroku logs -t'
 alias thom='vim ~/Dropbox/work/thoughtbot/notes/1-1s/thom.txt'
 alias track='git checkout -t'
-alias warmup='vim ~/Dropbox/barbershop/warmups/ideas.txt'
-alias weekly-iteration='vim ~/Dropbox/work/thoughtbot/notes/weekly-iteration/recording-process.txt'
+alias w='cd ~/code/whetstone'
 alias worknotes='vim ~/Dropbox/work/thoughtbot/notes -c "Ex"'
 alias u='cd ..'
 alias v='vim'
 alias vi='vim'
-alias vu='cd ~/code/vim-university'
-alias y='cd ~/code/ybuy'
-alias z='zeus'
-alias zs='zeus start'
 
 # Heroku staging
 alias staging-console='heroku run console --remote staging'
