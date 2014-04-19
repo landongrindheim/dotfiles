@@ -360,16 +360,19 @@ map <Leader>n :call RenameFile()<cr>
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
 
-" ========================================================================
-" End of things set by me.
-" ========================================================================
-
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
+
+" Make it more obvious which paren I'm on
+hi MatchParen cterm=none ctermbg=black ctermfg=yellow
+
+" ========================================================================
+" End of things set by me.
+" ========================================================================
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")

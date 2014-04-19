@@ -25,10 +25,6 @@ stty stop undef
 # Sourcing of other files
 source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/functions
+source $HOME/.dotfiles/zsh/prompt
 
-# Source prompt
-source $HOME/.dotfiles/zsh_prompt
-
-# PATH stuff
-export PATH=bin:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:bin:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rvm/bin
