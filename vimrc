@@ -1,46 +1,57 @@
 " ========================================================================
 " Vundle stuff
 " ========================================================================
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set nocompatible " Required by vundle
+filetype off     " Required by vundle
 
-" Let Vundle manage Vundle (required)!
-Bundle 'gmarik/vundle'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " My bundles
-Bundle 'ervandew/supertab'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'wincent/Command-T'
-Bundle 'koron/nyancat-vim'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'skwp/greplace.vim'
+Plugin 'ervandew/supertab'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'wincent/Command-T'
+Plugin 'koron/nyancat-vim'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'skwp/greplace.vim'
 
 " nelstrom's plugin depends on kana's
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 
 " Clojure
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-classpath'
+Plugin 'tpope/vim-fireplace'
 
 " Colors
-Bundle 'nanotech/jellybeans.vim'
+Plugin 'nanotech/jellybeans.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Use the colorscheme from above
 colorscheme jellybeans
 
-" ================
+" ========================================================================
 " Ruby stuff
-" ================
+" ========================================================================
 syntax on                 " Enable syntax highlighting
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
@@ -63,7 +74,7 @@ let mapleader = ","
 map <Leader>ac :sp app/controllers/application_controller.rb<cr>
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 map <Leader>bb :!bundle install<cr>
-nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
+nmap <Leader>bi :source ~/.vimrc<cr>:PluginInstall<cr>
 vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
 map <Leader>cc :!cucumber --drb %<CR>
 map <Leader>cu :Tabularize /\|<CR>
@@ -147,7 +158,6 @@ map <C-p> :cp<CR>
 imap <c-e> <c-o>$
 imap <c-a> <c-o>^
 
-set nocompatible
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set history=500		" keep 500 lines of command line history
 set ruler		" show the cursor position all the time
