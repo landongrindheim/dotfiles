@@ -23,6 +23,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'koron/nyancat-vim'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'skwp/greplace.vim'
 
 " nelstrom's plugin depends on kana's
 Bundle 'kana/vim-textobj-user'
