@@ -158,6 +158,8 @@ map <C-p> :cp<CR>
 imap <c-e> <c-o>$
 imap <c-a> <c-o>^
 
+
+
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set history=500		" keep 500 lines of command line history
 set ruler		" show the cursor position all the time
@@ -252,6 +254,12 @@ function! MergeTabs()
 endfunction
 
 nmap <C-W>u :call MergeTabs()<CR>
+
+
+" Squash all commits into the first during rebase
+function! SquashAll()
+  normal ggj}klllcf:w
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Test-running stuff
