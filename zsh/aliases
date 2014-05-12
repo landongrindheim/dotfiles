@@ -67,6 +67,7 @@ alias mentor='vim ~/Dropbox/work/thoughtbot/notes/mentees.txt'
 alias newscreen="tmux"
 alias l='cd ~/code/learn'
 alias lt='lein test'
+alias lrs='lein ring server'
 alias -g L='| less'
 alias pc='production-console'
 alias parallel='rdtp && rake parallel:prepare test:parallel_with_specs'
