@@ -4,7 +4,7 @@ These are config files to set up a system the way I like it.
 
 Vim-users will likely find useful stuff in .vimrc, and also vim/snippets.
 
-I'm also a pretty aggressive aliaser. You might find a few you like in bash/aliases.
+I'm also a pretty aggressive aliaser. You might find a few you like in zsh/aliases.
 
 == Installation
 
