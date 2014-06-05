@@ -62,6 +62,8 @@ augroup myfiletypes
   autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
   autocmd FileType ruby,eruby,yaml setlocal path+=lib
   autocmd FileType ruby,eruby,yaml setlocal colorcolumn=80
+  " Make ?s part of words
+  autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 
   " Clojure
   autocmd FileType clojure setlocal colorcolumn=80
@@ -85,6 +87,7 @@ map <Leader>co ggVG"*y
 map <Leader>cc :Rjcollection client/
 map <Leader>cj :Rjspec client/
 map <Leader>cm :Rjmodel client/
+map <Leader>cs :call SearchForCallSites()<CR>
 map <Leader>ct :Rtemplate client/
 map <Leader>cv :Rjview client/
 map <Leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
@@ -94,7 +97,6 @@ map <Leader>dj :e ~/Dropbox/notes/debugging_journal.txt<cr>
 map <Leader>ec :e ~/code/
 map <Leader>gac :Gcommit -m -a ""<LEFT>
 map <Leader>gc :Gcommit -m ""<LEFT>
-map <Leader>gr :e ~/Dropbox/docs/journal<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gw :!git add . && git commit -m 'WIP' && git push<cr>
 map <Leader>f :call OpenFactoryFile()<CR>
@@ -223,8 +225,6 @@ map Q <Nop>
 " Disable K looking stuff up
 map K <Nop>
 
-" When loading text files, wrap them and don't split up words.
-au BufNewFile,BufRead *.txt setlocal lbr
 au BufNewFile,BufRead *.txt setlocal nolist " Don't display whitespace
 
 " Better? completion on command line
@@ -262,6 +262,14 @@ nmap <C-W>u :call MergeTabs()<CR>
 " Squash all commits into the first during rebase
 function! SquashAll()
   normal ggj}klllcf:w
+endfunction
+
+" Search for call sites for word under cursor (excluding its definition) and
+" load into the quickfix list.
+function! SearchForCallSites()
+  let searchTerm = expand("<cword>")
+
+  cexpr system('ag ' . searchTerm . '\| grep -v def')
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
