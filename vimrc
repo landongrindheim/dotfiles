@@ -87,7 +87,7 @@ map <Leader>co ggVG"*y
 map <Leader>cc :Rjcollection client/
 map <Leader>cj :Rjspec client/
 map <Leader>cm :Rjmodel client/
-map <Leader>cs :call SearchForCallSites()<CR>
+map <Leader>cs :call SearchForCallSitesCursor()<CR>
 map <Leader>ct :Rtemplate client/
 map <Leader>cv :Rjview client/
 map <Leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
@@ -264,12 +264,16 @@ function! SquashAll()
   normal ggj}klllcf:w
 endfunction
 
-" Search for call sites for word under cursor (excluding its definition) and
-" load into the quickfix list.
-function! SearchForCallSites()
-  let searchTerm = expand("<cword>")
 
-  cexpr system('ag ' . searchTerm . '\| grep -v def')
+function! SearchForCallSitesCursor()
+  let searchTerm = expand("<cword>")
+  call SearchForCallSites(searchTerm)
+endfunction
+
+" Search for call sites for term (excluding its definition) and
+" load into the quickfix list.
+function! SearchForCallSites(term)
+  cexpr system('ag ' . shellescape(a:term) . '\| grep -v def')
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
