@@ -125,8 +125,8 @@ alias production-tail='heroku logs --tail --remote production'
 
 # # Heroku databases
 
-alias db-pull-staging='heroku pg:pull --remote staging --confirm `basename $PWD`-staging'
-alias db-pull-production='rake db:drop && heroku pg:pull --remote production --confirm `basename $PWD`-production'
+alias db-pull-staging='development restore staging'
+alias db-pull-production='development restore production'
 
 alias db-copy-production-to-staging='heroku pgbackups:restore DATABASE `heroku pgbackups:url --remote production` --remote staging  --confirm `basename $PWD`-staging'
 alias db-backup-production='heroku pgbackups:capture --remote production'
