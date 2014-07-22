@@ -112,6 +112,7 @@ alias track='git checkout -t'
 alias w='cd ~/code/whetstone'
 alias worknotes='vim ~/Dropbox/work/thoughtbot/notes -c "Ex"'
 alias u='cd ..'
+alias undeployed='git fetch production && git fetch origin && git log production/master..origin/master'
 alias v='vim'
 alias vi='vim'
 
