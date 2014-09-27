@@ -130,6 +130,7 @@ map <Leader>st :!ruby -Itest % -n "//"<left><left>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
 map <Leader>t :w<cr>:call RunCurrentTest()<CR>
+map <Leader>tn :e! ~/Dropbox/docs/trailmix/todo.md<cr>
 map <Leader>y :!rspec --drb %<cr>
 map <Leader>u :Runittest<cr>
 map <Leader>vc :RVcontroller<cr>
@@ -403,6 +404,9 @@ endif
 
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
+
+" By default, vim thinks .md is Modula-2. 
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " ========================================================================
 " End of things set by me.
