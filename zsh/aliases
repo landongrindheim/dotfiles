@@ -90,7 +90,7 @@ alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp 
 alias retagwithcoffee='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp * && coffeetags -R -f >> tags'
 alias repush="gpr && git push"
 alias review="git diff master"
-alias rc='rails console'
+alias rc='bin/rails console'
 alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump && rake db:test:prepare'
 alias rdm="bin/rake db:migrate"
 alias rdtp="bin/rake db:test:prepare"
