@@ -38,6 +38,7 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-leiningen'
 
 " Colors
 Plugin 'nanotech/jellybeans.vim'
