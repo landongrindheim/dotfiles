@@ -18,6 +18,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'koron/nyancat-vim'
 Plugin 'skwp/greplace.vim'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-dispatch'
@@ -107,7 +108,7 @@ map <Leader>l oconsole.log 'debugging'<esc>:w<cr>
 map <Leader>m :Rmodel 
 map <Leader>nn :sp ~/Dropbox/notes/programming_notes.txt<cr>
 map <Leader>nt :e! ~/Dropbox/docs/trailmix/todo.md<cr>
-map <Leader>o :w<cr>:call RunCurrentLineInTest()<CR>
+map <Leader>o :w<cr>:call RunNearestSpec()<CR>
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
 map <Leader>ra :%s/
@@ -128,7 +129,7 @@ map <Leader>ss ds)i <esc>:w<cr>
 map <Leader>st :!ruby -Itest % -n "//"<left><left>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
-map <Leader>t :w<cr>:call RunCurrentTest()<CR>
+map <Leader>t :w<cr>:call RunCurrentSpecFile()<CR>
 map <Leader>y :!rspec --drb %<cr>
 map <Leader>u :Runittest<cr>
 map <Leader>vc :RVcontroller<cr>
@@ -276,47 +277,10 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Test-running stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RunCurrentTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
 
-    if match(expand('%'), '\.feature$') != -1
-      call SetTestRunner("!bin/cucumber")
-      exec g:bjo_test_runner g:bjo_test_file
-    elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("!bin/rspec")
-      exec g:bjo_test_runner g:bjo_test_file
-    else
-      call SetTestRunner("!ruby -Itest")
-      exec g:bjo_test_runner g:bjo_test_file
-    endif
-  else
-    exec g:bjo_test_runner g:bjo_test_file
-  endif
-endfunction
+"Now using thoughtbot/vim-rspec and tpope/dispatch.
 
-function! SetTestRunner(runner)
-  let g:bjo_test_runner=a:runner
-endfunction
-
-function! RunCurrentLineInTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFileWithLine()
-  end
-
-  exec "!bin/rspec" g:bjo_test_file . ":" . g:bjo_test_file_line
-endfunction
-
-function! SetTestFile()
-  let g:bjo_test_file=@%
-endfunction
-
-function! SetTestFileWithLine()
-  let g:bjo_test_file=@%
-  let g:bjo_test_file_line=line(".")
-endfunction
+let g:rspec_command = "Dispatch bin/rspec {spec}"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
