@@ -290,30 +290,6 @@ inoremap <Tab> <C-P>
 nmap k gk
 nmap j gj
 
-
-" Set up some useful Rails.vim bindings for working with Backbone.js
-autocmd User Rails Rnavcommand template    app/assets/templates               -glob=**/*  -suffix=.jst.ejs
-autocmd User Rails Rnavcommand jmodel      app/assets/javascripts/models      -glob=**/*  -suffix=.coffee
-autocmd User Rails Rnavcommand jview       app/assets/javascripts/views       -glob=**/*  -suffix=.coffee
-autocmd User Rails Rnavcommand jcollection app/assets/javascripts/collections -glob=**/*  -suffix=.coffee
-autocmd User Rails Rnavcommand jrouter     app/assets/javascripts/routers     -glob=**/*  -suffix=.coffee
-autocmd User Rails Rnavcommand jspec       spec/javascripts                   -glob=**/*  -suffix=.coffee
-
-" Don't add the comment prefix when I hit enter or o/O on a comment line.
-set formatoptions-=or
-
-
-function! OpenJasmineSpecInBrowser()
-  let filename = expand('%')
-  "                  substitute(exprsson, pattern,            substitution,    flags)
-  let url_fragment = substitute(filename, "spec/javascripts", "evergreen/run", "")
-  let host_fragment = "http://localhost:3001/"
-  let url = host_fragment . url_fragment
-  silent exec "!open ~/bin/chrome" url
-endfunction
-
-" set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
 let g:CommandTMaxHeight=50
 let g:CommandTMatchWindowAtTop=1
 
