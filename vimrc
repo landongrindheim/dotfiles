@@ -344,6 +344,9 @@ hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 " By default, vim thinks .md is Modula-2.
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
+" Wrap the quickfix window
+autocmd FileType qf setlocal wrap linebreak
+
 " ========================================================================
 " End of things set by me.
 " ========================================================================
