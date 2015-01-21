@@ -71,6 +71,7 @@ alias -g M='| more'
 alias mastre='master'
 alias mentor='vim ~/Dropbox/work/thoughtbot/notes/mentees.txt'
 alias newscreen="tmux"
+alias notes="cd ~/Dropbox/notes ; vim ."
 alias l='cd ~/code/upcase'
 alias lt='lein test'
 alias lrs='lein ring server'
