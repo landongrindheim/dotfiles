@@ -55,7 +55,6 @@ colorscheme jellybeans
 " Ruby stuff
 " ========================================================================
 syntax on                 " Enable syntax highlighting
-filetype plugin indent on " Enable filetype-specific indenting and plugins
 
 augroup myfiletypes
   " Clear old autocmds in group
@@ -118,7 +117,7 @@ map <Leader>rs :vsp <C-r>#<cr><C-w>w
 map <Leader>rt q:?!ruby<cr><cr>
 map <Leader>rw :%s/\s\+$//<cr>:w<cr>
 map <Leader>sc :sp db/schema.rb<cr>
-map <Leader>sg :sp<cr>:grep
+map <Leader>sg :sp<cr>:grep<space>
 map <Leader>sj :call OpenJasmineSpecInBrowser()<cr>
 map <Leader>sm :RSmodel
 map <Leader>sp yss<p>
@@ -215,6 +214,8 @@ set nofoldenable " Say no to code folding...
 
 command! Q q " Bind :Q to :q
 command! Qall qall
+command! QA qall
+command! E e
 
 
 " Disable Ex mode
