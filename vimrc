@@ -68,7 +68,7 @@ augroup myfiletypes
 
   " Clojure
   autocmd FileType clojure setlocal colorcolumn=80
-  autocmd FileType clojure map <Leader>t :!lein test %<cr>
+  autocmd FileType clojure map <Leader>t :!lein test<cr>
 augroup END
 
 " Enable built-in matchit plugin
@@ -281,7 +281,7 @@ endfunction
 
 "Now using thoughtbot/vim-rspec and tpope/dispatch.
 
-let g:rspec_command = "Dispatch rspec {spec}"
+let g:rspec_command = "Dispatch bin/rspec {spec}"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
