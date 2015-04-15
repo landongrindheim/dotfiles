@@ -426,6 +426,8 @@ snippet prot
 	protocol${1}
 #
 # For rspec
+snippet new
+	allow(${1}).to receive(:new).with(${2}).and_return(${3})
 snippet desc
 	describe "${1}" do
 	  ${2}
@@ -447,7 +449,7 @@ snippet cont
 	  ${2}
 	end
 snippet spec
-	require "rails_helper"
+	require "spec_helper"
 
 	describe ${1} do
 	  ${2}
