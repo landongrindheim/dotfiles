@@ -199,8 +199,8 @@ set grepprg=ag
 " Make the omnicomplete text readable
 :highlight PmenuSel ctermfg=black
 
-" Fuzzy finder: ignore stuff that can't be opened, and generated files
-let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
+" Ignore stuff that can't be opened
+set wildignore+=tmp/**
 
 " Highlight the status line
 highlight StatusLine ctermfg=blue ctermbg=yellow
