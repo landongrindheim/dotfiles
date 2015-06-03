@@ -12,15 +12,12 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " My bundles
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'ervandew/supertab'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'koron/nyancat-vim'
 Plugin 'skwp/greplace.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
@@ -29,11 +26,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'wincent/Command-T'
-
-" nelstrom's plugin depends on kana's
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
@@ -98,10 +91,10 @@ map <Leader>dj :e ~/Dropbox/notes/debugging_journal.txt<cr>
 map <Leader>ec :e ~/code/
 map <Leader>g :Start gitsh<cr>
 map <Leader>gw :!git add . && git commit -m 'WIP' && git push<cr>
+map <Leader>h :CtrlP<cr>
 map <Leader>f :call OpenFactoryFile()<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
-map <Leader>h :CommandT<CR>
 map <Leader>i mmgg=G`m<CR>
 map <Leader>l oconsole.log 'debugging'<esc>:w<cr>
 map <Leader>m :Rmodel
@@ -112,7 +105,6 @@ map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
-map <Leader>rf :CommandTFlush<CR>:CommandT<CR>
 map <Leader>rs :vsp <C-r>#<cr><C-w>w
 map <Leader>rt q:?!ruby<cr><cr>
 map <Leader>rw :%s/\s\+$//<cr>:w<cr>
@@ -131,13 +123,13 @@ map <Leader>sv :RSview
 map <Leader>t :w<cr>:call RunCurrentSpecFile()<CR>
 map <Leader>y :!rspec --drb %<cr>
 map <Leader>u :Runittest<cr>
-map <Leader>vc :RVcontroller<cr>
-map <Leader>vf :RVfunctional<cr>
+map <Leader>vc :Vcontroller<cr>
+map <Leader>vf :Vfunctional<cr>
 map <Leader>vg :vsp<cr>:grep
 map <Leader>vi :tabe ~/.vimrc<CR>
-map <Leader>vu :RVunittest<CR>
-map <Leader>vm :RVmodel<cr>
-map <Leader>vv :RVview<cr>
+map <Leader>vu :Vunittest<CR>
+map <Leader>vm :Vmodel<cr>
+map <Leader>vv :Vview<cr>
 map <Leader>w <C-w>w
 map <Leader>x :exec getline(".")<cr>
 
@@ -186,18 +178,17 @@ set relativenumber
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
 set bg=light
+set scrolloff=1
+set lazyredraw " Don't redraw screen when running macros.
 
 " Set the tag file search order
 set tags=./tags;
-
-" Use _ as a word-separator
-" set iskeyword-=_
 
 " Use Silver Searcher instead of grep
 set grepprg=ag
 
 " Make the omnicomplete text readable
-:highlight PmenuSel ctermfg=black
+highlight PmenuSel ctermfg=black
 
 " Ignore stuff that can't be opened
 set wildignore+=tmp/**
@@ -217,9 +208,8 @@ command! Qall qall
 command! QA qall
 command! E e
 
-
-" Disable Ex mode
-map Q <Nop>
+" Execute macro in q
+map Q @q
 
 " Disable K looking stuff up
 map K <Nop>
@@ -274,6 +264,11 @@ endfunction
 function! SearchForCallSites(term)
   cexpr system('ag ' . shellescape(a:term) . '\| grep -v def')
 endfunction
+
+" Make CtrlP use ag for listing the files. Way faster and no useless files.
+" Without --hidden, it never finds .travis.yml since it starts with a dot
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_use_caching = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Test-running stuff
