@@ -95,7 +95,7 @@ map <Leader>h :CtrlP<cr>
 map <Leader>f :call OpenFactoryFile()<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
-map <Leader>i mmgg=G`m<CR>
+map <Leader>i mmgg=G`m
 map <Leader>l oconsole.log 'debugging'<esc>:w<cr>
 map <Leader>m :Rmodel
 map <Leader>nn :sp ~/Dropbox/notes/programming_notes.txt<cr>

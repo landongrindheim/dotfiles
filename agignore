@@ -5,3 +5,4 @@ doc
 coverage
 public/assets
 *.sql
+/.git/
