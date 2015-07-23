@@ -179,7 +179,6 @@ set relativenumber
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
 set bg=light
-set scrolloff=1
 set lazyredraw " Don't redraw screen when running macros.
 
 " Set the tag file search order
