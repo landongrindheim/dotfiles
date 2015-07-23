@@ -19,7 +19,7 @@ compinit
 stty start undef
 stty stop undef
 
-# RVM 
+# RVM
 [[ -s "/Users/ben/.rvm/scripts/rvm" ]] && source "/Users/ben/.rvm/scripts/rvm"
 
 # Sourcing of other files

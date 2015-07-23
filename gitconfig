@@ -1,6 +1,6 @@
 [user]
 	name = Ben Orenstein
-	email = ben.orenstein@gmail.com 
+	email = ben.orenstein@gmail.com
 [alias]
 	co = checkout
         cleanup = !git remote prune origin && git gc && git clean -df && git stash clear
@@ -10,7 +10,7 @@
 	branch = auto
 
 [color "diff"]
-        meta = yellow 
+        meta = yellow
 
 [core]
 	excludesfile = ~/.gitignore
