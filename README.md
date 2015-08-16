@@ -8,11 +8,11 @@ I'm also a pretty aggressive aliaser. You might find a few you like in [zsh/alia
 
 ## Installation
 
-  git clone git://github.com/r00k/dotfiles ~/.dotfiles
-  cd ~/.dotfiles
-  rake install
+  `git clone git://github.com/r00k/dotfiles ~/.dotfiles`  
+  `cd ~/.dotfiles`  
+  `rake install`
 
   Vim plugins are managed through vundle. You'll need to install vundle to get them.
 
-  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`  
   Run :BundleInstall in vim.
