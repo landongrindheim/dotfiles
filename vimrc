@@ -107,7 +107,7 @@ map <Leader>nt :e! ~/Dropbox/docs/trailmix/todo.md<cr>
 map <Leader>o :w<cr>:call RunNearestSpec()<CR>
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
-map <Leader>q :copen<cr><C-w>t
+map <Leader>q :copen<cr><cr>
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rs :vsp <C-r>#<cr><C-w>w
