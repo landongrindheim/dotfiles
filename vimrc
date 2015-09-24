@@ -32,7 +32,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-leiningen'
+Plugin 'clojure-emacs/cider-nrepl'
+
+" Elm
+Plugin 'lambdatoast/elm.vim'
 
 " Colors
 Plugin 'nanotech/jellybeans.vim'
@@ -104,6 +107,7 @@ map <Leader>nt :e! ~/Dropbox/docs/trailmix/todo.md<cr>
 map <Leader>o :w<cr>:call RunNearestSpec()<CR>
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
+map <Leader>q :copen<cr><C-w>t
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rs :vsp <C-r>#<cr><C-w>w
@@ -128,7 +132,7 @@ map <Leader>vc :Vcontroller<cr>
 map <Leader>vf :Vfunctional<cr>
 map <Leader>vg :vsp<cr>:grep
 map <Leader>vi :tabe ~/.vimrc<CR>
-map <Leader>vu :Vunittest<CR>
+map <Leader>vu :AV<CR>
 map <Leader>vm :Vmodel<cr>
 map <Leader>vv :Vview<cr>
 map <Leader>w <C-w>w
@@ -154,6 +158,9 @@ map <C-p> :cp<CR>
 " Emacs-like beginning and end of line.
 imap <c-e> <c-o>$
 imap <c-a> <c-o>^
+
+" Quickfix management
+map <Space><Space> :ccl<cr>
 
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set history=500		" keep 500 lines of command line history
@@ -339,6 +346,9 @@ hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 
 " By default, vim thinks .md is Modula-2.
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Without this, vim breaks in the middle of words when wrapping
+autocmd FileType markdown setlocal nolist wrap lbr
 
 " Wrap the quickfix window
 autocmd FileType qf setlocal wrap linebreak
