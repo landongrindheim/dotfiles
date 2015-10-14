@@ -300,9 +300,6 @@ let g:CommandTMatchWindowAtTop=1
 " situations.
 set timeoutlen=500
 
-" Don't go past 100 chars on levelup:
-autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=100
-
 " Remove trailing whitespace on save for ruby files.
 au BufWritePre *.rb :%s/\s\+$//e
 
@@ -352,6 +349,9 @@ autocmd FileType markdown setlocal nolist wrap lbr
 
 " Wrap the quickfix window
 autocmd FileType qf setlocal wrap linebreak
+
+" Make it more obviouser when lines are too long
+highlight ColorColumn ctermbg=235
 
 " ========================================================================
 " End of things set by me.
