@@ -33,3 +33,5 @@
 	user = r00k
 [merge]
         ff = only
+[fetch]
+        prune = true
