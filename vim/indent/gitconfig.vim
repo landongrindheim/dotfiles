@@ -11,6 +11,10 @@ setlocal autoindent
 setlocal indentexpr=GetGitconfigIndent()
 setlocal indentkeys=o,O,*<Return>,0[,],0;,0#,=,!^F
 
+" Auto indent pasted text
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+
 " Only define the function once.
 if exists("*GetGitconfigIndent")
   finish
