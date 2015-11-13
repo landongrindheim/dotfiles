@@ -166,7 +166,6 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 set history=500		" keep 500 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set autoindent
 set showmatch
 set nowrap
 set backupdir=~/.tmp
