@@ -94,7 +94,6 @@ map <Leader>dj :e ~/Dropbox/notes/debugging_journal.txt<cr>
 map <Leader>ec :e ~/code/
 map <Leader>g :Start gitsh<cr>
 map <Leader>gw :!git add . && git commit -m 'WIP' && git push<cr>
-map <Leader>h :CtrlP<cr>
 map <Leader>f :call OpenFactoryFile()<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
