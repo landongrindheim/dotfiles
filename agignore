@@ -7,3 +7,4 @@ public/assets
 *.sql
 /.git/
 *.svg
+public/fonts
