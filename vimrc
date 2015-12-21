@@ -40,6 +40,9 @@ Plugin 'lambdatoast/elm.vim'
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
+" UGgggghhhh
+Plugin 'mustache/vim-mustache-handlebars'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -80,7 +83,7 @@ nmap <Leader>bi :source ~/.vimrc<cr>:PluginInstall<cr>
 vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
 map <Leader>cc :!cucumber --drb %<CR>
 map <Leader>cu :Tabularize /\|<CR>
-map <Leader>co ggVG"*y
+map <Leader>co mmggVG"*y`m
 map <Leader>cc :Rjcollection client/
 map <Leader>cj :Rjspec client/
 map <Leader>cm :Rjmodel client/
@@ -210,6 +213,9 @@ command! Q q " Bind :Q to :q
 command! Qall qall
 command! QA qall
 command! E e
+command! W w
+command! Wq wq
+
 
 " Execute macro in q
 map Q @q
