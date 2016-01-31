@@ -95,8 +95,8 @@ map <Leader>d orequire 'pry'<cr>binding.pry<esc>:w<cr>
 map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>dj :e ~/Dropbox/notes/debugging_journal.txt<cr>
 map <Leader>ec :e ~/code/
-map <Leader>g :Start gitsh<cr>
 map <Leader>gw :!git add . && git commit -m 'WIP' && git push<cr>
+map <Leader>gl :e Gemfile.lock<cr>
 map <Leader>f :call OpenFactoryFile()<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
@@ -107,7 +107,7 @@ map <Leader>mf mmgqap`m:w<cr>
 map <Leader>nn :sp ~/Dropbox/notes/programming_notes.txt<cr>
 map <Leader>nt :e! ~/Dropbox/docs/trailmix/todo.md<cr>
 map <Leader>o :w<cr>:call RunNearestSpec()<CR>
-map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+map <Leader>p :set paste<CR><esc>"*]P:set nopaste<cr>
 map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.md<cr>
 map <Leader>q :copen<cr><cr>
 map <Leader>ra :%s/
@@ -285,7 +285,7 @@ let g:ctrlp_use_caching = 0
 
 "Now using thoughtbot/vim-rspec and tpope/dispatch.
 
-let g:rspec_command = "Dispatch bin/rspec {spec}"
+let g:rspec_command = "!clear && bin/rspec {spec}"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

@@ -456,8 +456,6 @@ snippet spec
 	end
 snippet hc
 	expect(page).to have_content(${1})
-snippet F
-	Factory(:${1})
 snippet cuke
 	"([^"]*)" ${1}
 snippet let
@@ -490,3 +488,12 @@ snippet feat
 	    ${3}
 	  end
 	end
+snippet controller
+	class ${1} < ApplicationController
+	  def ${2}
+	  end
+	end
+snippet user
+	user = create(:user)
+snippet f
+	${1} = create(:${2})
