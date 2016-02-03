@@ -31,4 +31,8 @@ source $HOME/.dotfiles/zsh/z
 # Add cabal bin
 export PATH=$PATH:~/.cabal/bin
 
-export PATH=$PATH:bin:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rvm/bin
+# Add current directory bin
+export PATH=bin:$PATH
+
+# More junk
+export PATH=$PATH:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rvm/bin
