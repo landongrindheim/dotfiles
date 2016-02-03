@@ -74,6 +74,7 @@ alias journal='vim ~/Dropbox/docs/journal/2011.txt'
 alias killruby='killall -9 ruby'
 alias killrudy='killruby'
 alias -g M='| more'
+alias m='git checkout master'
 alias mastre='master'
 alias mentor='vim ~/Dropbox/work/thoughtbot/notes/mentees.txt'
 alias newscreen="tmux"
