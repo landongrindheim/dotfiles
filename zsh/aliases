@@ -132,6 +132,6 @@ alias production-tail='heroku logs --tail --remote production'
 
 # # Heroku databases
 
-alias db-pull-staging='staging backup && development restore staging'
-alias db-pull-production='production backup && development restore production'
-alias db-copy-production-to-staging='production backup && staging restore production'
+alias db-pull-staging='development restore staging'
+alias db-pull-production='development restore production'
+alias db-copy-production-to-staging='staging restore production'
