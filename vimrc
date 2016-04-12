@@ -35,7 +35,10 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'clojure-emacs/cider-nrepl'
 
 " Elm
-Plugin 'lambdatoast/elm.vim'
+Plugin 'ElmCast/elm-vim'
+let g:elm_setup_keybindings = 0 " Get the fuck out of my bindings
+" Want this, but not showing errors:
+" let g:elm_format_autosave = 1
 
 " Colors
 Plugin 'nanotech/jellybeans.vim'
@@ -275,8 +278,7 @@ function! SearchForCallSites(term)
 endfunction
 
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
-" Without --hidden, it never finds .travis.yml since it starts with a dot
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
