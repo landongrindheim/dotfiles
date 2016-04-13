@@ -43,8 +43,6 @@ let g:elm_setup_keybindings = 0 " Get the fuck out of my bindings
 " Colors
 Plugin 'nanotech/jellybeans.vim'
 
-" UGgggghhhh
-Plugin 'mustache/vim-mustache-handlebars'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -185,6 +183,7 @@ set noincsearch
 set ignorecase smartcase
 set laststatus=2  " Always show status line.
 set relativenumber
+set number
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
 set bg=light

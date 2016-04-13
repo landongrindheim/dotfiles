@@ -428,6 +428,8 @@ snippet prot
 # For rspec
 snippet new
 	allow(${1}).to receive(:new).with(${2}).and_return(${3})
+snippet stub
+	allow(${1}).to receive(:${2}).and_return(${3})
 snippet desc
 	describe ${1} do
 	  ${2}
