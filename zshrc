@@ -31,5 +31,8 @@ export PATH=$PATH:~/.cabal/bin
 # Add current directory bin
 export PATH=$PATH:bin
 
+# Add my own dotfiles bin
+export PATH=$PATH:$HOME/.dotfiles/bin
+
 # RVM
 [[ -s "/Users/ben/.rvm/scripts/rvm" ]] && source "/Users/ben/.rvm/scripts/rvm"
