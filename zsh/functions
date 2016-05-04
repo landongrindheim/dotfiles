@@ -9,7 +9,7 @@ function git_branch_name {
 
 function git-done {
   branch=`git_branch_name`
-  killruby ; spring stop ; git checkout master && git merge $branch --ff-only && bundle install && prepdb && bin/rspec && git push && git branch -D $branch && git push origin :$branch
+  git checkout master && git merge $branch --ff-only && bundle install && prepdb && bin/rspec && git push && git-nuke $branch
 }
 
 function git-nuke {
