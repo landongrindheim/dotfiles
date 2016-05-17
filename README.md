@@ -10,6 +10,6 @@ Config files for Git, Vim and Tmux. Plenty taken from [Ben Ornstein](https://git
 
   Vim plugins are managed through vundle. You'll need to install vundle to get them.
 
-  `git clone https://github.com/VimVundle/Vundle.vim.git ~/.vim/bundle/Vundle.vim` 
+  `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim` 
 
   Run :BundleInstall in vim.
