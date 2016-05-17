@@ -1,9 +1,1 @@
-.DS_Store
-.svn
-*~
-tags
-log/
-db/*.sqlite3
-.netrwhist
-project-notes.txt
 .bundle
