@@ -8,6 +8,8 @@ call vundle#rc()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
@@ -48,6 +50,7 @@ set scrolloff=3
 set nowrap
 set autoindent
 set smartindent
+set colorcolumn=80,100
 
 " line numbers and length
 set number
@@ -60,6 +63,7 @@ set showmatch   " Show matching brackets when text indicator is over them
 set ignorecase " Ignore case when searching
 set hlsearch
 set incsearch
+set path=$PWD/**
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
