@@ -12,9 +12,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-ruby'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-ruby/vim-ruby'
 
 " Colors
 Plugin 'altercation/vim-colors-solarized'
@@ -92,6 +92,12 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" break arrow habbit
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
 
 " Airline - smart tab line
 let g:airline#extensions#tabline#enabled = 0
