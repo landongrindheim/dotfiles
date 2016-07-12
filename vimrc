@@ -107,11 +107,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" break arrow habbit
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+" quit accidentally loading nonexistent man pages 
+nnoremap K <nop>
 
 " Airline - smart tab line
 let g:airline#extensions#tabline#enabled = 0
