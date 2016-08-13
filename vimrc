@@ -9,6 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-endwise'
