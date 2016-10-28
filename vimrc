@@ -11,7 +11,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
@@ -27,6 +26,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
+let mapleader=","
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -62,7 +62,9 @@ set showmatch   " Show matching brackets when text indicator is over them
 
 " searching
 set ignorecase " Ignore case when searching
+set smartcase
 set hlsearch
+nnoremap <leader><leader> :noh<cr>
 set incsearch
 set path=$PWD/**
 
@@ -76,6 +78,20 @@ function! s:VSetSearch(cmdtype)
   let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
   let @s = temp
 endfunction
+
+" Silver Searcher
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
+
+  let g:ctrlp_use_caching=0
+endif
+
+" Cycle through buffers as if they were tabs
+nnoremap <Tab> :bnext<cr>
+nnoremap <S-Tab> :bprevious<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,10 +113,9 @@ if has('statusline')
     set laststatus=2    " Tell Vim to always put a status line in, even if there is only one window.
 endif
 
-" NERDTree Directory Visual
-" autocmd vimenter * NERDTree " NERDTree open by default
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Map other patterns to escape
+inoremap jj <esc>
+inoremap jk <esc>
 
 " move around split screens with <c-hjkl>
 nnoremap <c-j> <c-w>j
