@@ -58,7 +58,9 @@ set number
 set ruler       "Always show current position
 
 set showmatch   " Show matching brackets when text indicator is over them
-" set mat=2       " show matching (,{,[ for 2 ms
+set mat=1       " show matching (,{,[ for 1 ms
+" use % to match blocks and conditionals
+runtime macros/matchit.vim
 
 " searching
 set ignorecase " Ignore case when searching
@@ -116,6 +118,7 @@ endif
 " Map other patterns to escape
 inoremap jj <esc>
 inoremap jk <esc>
+inoremap <c-c> <esc>
 
 " move around split screens with <c-hjkl>
 nnoremap <c-j> <c-w>j
@@ -123,7 +126,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" quit accidentally loading nonexistent man pages 
+" quit accidentally loading nonexistent man pages
 nnoremap K <nop>
 
 " Airline - smart tab line
