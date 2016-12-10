@@ -1,13 +1,17 @@
-" Vundle Requirements
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""" VUNDLE SETUP """"""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible                       " use vim, not vi
+filetype off                           " required for vundle
+set rtp+=~/.vim/bundle/Vundle.vim      " set vundle path
 
-" Let Vundle manage itself
-Plugin 'VundleVim/Vundle.vim'
 
-" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""" PLUGINS """"""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call vundle#rc()                       " load plugins
+
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'elixir-lang/vim-elixir'
@@ -18,75 +22,104 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'VundleVim/Vundle.vim'
 
-" Colors
-Plugin 'altercation/vim-colors-solarized'
+call vundle#end()                      " finish loading
 
-call vundle#end()
-filetype on
-filetype plugin on
-filetype indent on
 
-let mapleader=","
-" Set to auto read when a file is changed from the outside
-set autoread
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""" FILE DETECTION """""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin indent on              " detect filetype, handle accordingly
+set autoread                           " auto-read file when it has changed
 
-" colors and syntax highlighting
-syntax enable
-syntax on
-set background=dark
-set t_Co=256
-colorscheme solarized
 
-" automatically rebalance windows when vim is resized
-autocmd VimResized * :wincmd =
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""" COLORS AND SYNTAX HIGHLIGHTING """""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme solarized                  " use solarized colorscheme
+set background=dark                    " dark theme by default
+set t_Co=256                           " use screen-256 colors
 
-" Tabs and Spaces
-set expandtab       " Use spaces instead of tabs
-" 1 tab == 2 spaces
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
+syntax on                              " turn on syntax highlighting
 
-set smarttab       " Be smart when using tabs
 
-set linespace=0
-set scrolloff=3
-set nowrap
-set autoindent
-set smartindent
-set colorcolumn=80,100
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""" INTERFACE """""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set scrolloff=3                        " stay three lines from edges of screen
+set nowrap                             " don't wrap lines
+set colorcolumn=80,100                 " vertical lines at 80 and 100 chars
 
-" line numbers and length
-set number
-set ruler       "Always show current position
+set showmatch                          " highlight matching (,{,[
+set mat=1                              " highlight match for 1 ms
+runtime macros/matchit.vim             " use % to match blocks and conditionals
 
-set showmatch   " Show matching brackets when text indicator is over them
-set mat=1       " show matching (,{,[ for 1 ms
-" use % to match blocks and conditionals
-runtime macros/matchit.vim
+set number                             " use absolute numbers in left gutter
+set ruler                              " show current position in status bar
+set laststatus=2                       " always show status bar
+set showcmd                            " Show incomplete commands
 
-" searching
-set ignorecase " Ignore case when searching
-set smartcase
-set hlsearch
-nnoremap <leader><leader> :noh<cr>
-set incsearch
-set path=$PWD/**
+autocmd VimResized * :wincmd =         " rebalance windows when vim is resized
 
-" Visual Mode searching
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""" TABS AND SPACES """""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set expandtab                          " insert spaces instead of tabs
+set tabstop=2                          " hard tab == two spaces
+set softtabstop=2                      " soft tab == two spaces
+set shiftwidth=2                       " two spaces when indenting
+set smarttab                           " from line beginning, go to next indent
+
+set autoindent                         " turn on indenting
+set smartindent                        " indent to the right place
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""" CUSTOM KEY MAPPINGS """""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader=","                      " use comma for custom commands
+inoremap <c-c> <esc>                   " ctrl-c escapes insert mode
+inoremap jj <esc>                      " jj escapes insert mode
+inoremap jk <esc>                      " jk escapes insert mode, seriously
+
+nnoremap K <nop>                       " don't open man pages with K
+
+nnoremap <Tab> :bnext<cr>              " tab opens next buffer
+nnoremap <S-Tab> :bprevious<cr>        " shift-tab opens previous buffer
+
+nnoremap <c-j> <c-w>j                  " move to split to the left
+nnoremap <c-k> <c-w>k                  " move to split above
+nnoremap <c-h> <c-w>h                  " move to split below
+nnoremap <c-l> <c-w>l                  " move to split to the right
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""" REGEXP MATCHING """""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ignorecase                         " ignore case when searching
+set smartcase                          " unless you specify case
+set hlsearch                           " highlight matches
+nnoremap <leader><leader> :noh<cr>     " turn off match highlighting
+set incsearch                          " show first match while typing
+
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
-function! s:VSetSearch(cmdtype)
+function! s:VSetSearch(cmdtype)        " match objects in visual mode with * & #
   let temp = @s
   norm! gv"sy
   let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
   let @s = temp
 endfunction
 
-" Silver Searcher
-if executable('ag')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""" CTRL-P CONFIGURATION """""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set path=$PWD/**                       " search from the current directory
+if executable('ag')                    " use ag if available
   set grepprg=ag\ --nogroup\ --nocolor
 
   let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
@@ -94,44 +127,18 @@ if executable('ag')
   let g:ctrlp_use_caching=0
 endif
 
-" Cycle through buffers as if they were tabs
-nnoremap <Tab> :bnext<cr>
-nnoremap <S-Tab> :bprevious<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in git anyway...
-set nobackup
-set nowb
-set noswapfile
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""" FILES AND BACKUPS """""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nobackup                           " turn off backups
+set nowb                               " don't even backup current file
+set noswapfile                         " don't create swapfiles
 
-if has('mouse')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""" ETC """""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('mouse')                        " allow mouse use if present
     set mouse=a
 endif
-
-if has('cmdline_info')
-    set ruler
-    set showcmd     " Show incomplete commands
-endif
-
-if has('statusline')
-    set laststatus=2    " Tell Vim to always put a status line in, even if there is only one window.
-endif
-
-" Map other patterns to escape
-inoremap jj <esc>
-inoremap jk <esc>
-inoremap <c-c> <esc>
-
-" move around split screens with <c-hjkl>
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
-" quit accidentally loading nonexistent man pages
-nnoremap K <nop>
-
-" Airline - smart tab line
-let g:airline#extensions#tabline#enabled = 0
