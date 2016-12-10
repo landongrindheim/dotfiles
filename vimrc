@@ -38,6 +38,9 @@ set background=dark
 set t_Co=256
 colorscheme solarized
 
+" automatically rebalance windows when vim is resized
+autocmd VimResized * :wincmd =
+
 " Tabs and Spaces
 set expandtab       " Use spaces instead of tabs
 " 1 tab == 2 spaces
