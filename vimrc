@@ -94,6 +94,8 @@ nnoremap <c-k> <c-w>k                  " move to split above
 nnoremap <c-h> <c-w>h                  " move to split below
 nnoremap <c-l> <c-w>l                  " move to split to the right
 
+map <leader>i mmgg=G`m
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""" REGEXP MATCHING """""""""""""""""""""""""""""""""""""""""
@@ -140,5 +142,5 @@ set noswapfile                         " don't create swapfiles
 """""""""""""""""""""""""""""""""" ETC """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('mouse')                        " allow mouse use if present
-    set mouse=a
+  set mouse=a
 endif
