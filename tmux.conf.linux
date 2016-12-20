@@ -1,0 +1,7 @@
+#  set 'v' to begin selection as in Vim
+bind -t vi-copy v begin-selection
+bind -t vi-copy y copy-pipe "xclip -selection clipboard -i"
+
+# update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind -t vi-copy Enter copy-pipe "xclip -selection clipboard -i"
