@@ -49,7 +49,8 @@ syntax on                              " turn on syntax highlighting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set scrolloff=3                        " stay three lines from edges of screen
 set nowrap                             " don't wrap lines
-set colorcolumn=80,100                 " vertical lines at 80 and 100 chars
+set colorcolumn=80,100                 " vertical lines at 80 and 100 cols
+set winwidth=85                        " current window at least 85 cols wide
 
 set showmatch                          " highlight matching (,{,[
 set mat=1                              " highlight match for 1 ms
