@@ -56,8 +56,8 @@ set showmatch                          " highlight matching (,{,[
 set mat=1                              " highlight match for 1 ms
 runtime macros/matchit.vim             " use % to match blocks and conditionals
 
-set relativenumber                     " use relative numbers in left gutter
 set number                             " use absolute number for current line
+set relativenumber                     " use relative numbers in left gutter
 set ruler                              " show current position in status bar
 set laststatus=2                       " always show status bar
 set showcmd                            " Show incomplete commands
