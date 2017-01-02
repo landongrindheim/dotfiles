@@ -1,2 +1,29 @@
+RESET=$(tput sgr0)
+
+BLUE=$(tput setaf 4)
+CYAN=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
+GREEN=$(tput setaf 2)
+CLEAN="\xE2\x9C\x93"
+RED=$(tput setaf 1)
+DIRTY="\xE2\x9C\x97"
+
+git_status_flag() {
+  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" ]; then
+    if [ "$(git status --porcelain 2> /dev/null)" ]; then
+      echo -e " ${RED}${DIRTY}"
+    else
+      echo -e " ${GREEN}${CLEAN}"
+    fi
+  fi
+}
+
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+# bash propmt
+PS1="${BLUE}\u@\h${RESET} ${YELLOW}\$(parse_git_branch)\$(git_status_flag)\${RESET}\n \w${CYAN} \$${RESET} "
+
 # add dotfiles bin to path
 export PATH=$PATH:$HOME/.bin
