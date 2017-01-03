@@ -23,7 +23,7 @@ parse_git_branch() {
 }
 
 # bash propmt
-PS1="${BLUE}\u@\h${RESET} ${YELLOW}\$(parse_git_branch)\$(git_status_flag)\${RESET}\n \w${CYAN} \$${RESET} "
+PS1="\[${BLUE}\]\u@\h\[${RESET}\] \[${YELLOW}\]\$(parse_git_branch)\$(git_status_flag)\[${RESET}\]\n \w\[${CYAN}\] \$ \[${RESET}\]"
 
 # add dotfiles bin to path
 export PATH=$PATH:$HOME/.bin

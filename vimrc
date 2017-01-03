@@ -62,7 +62,7 @@ set ruler                              " show current position in status bar
 set laststatus=2                       " always show status bar
 set showcmd                            " Show incomplete commands
 
-autocmd VimResized * :wincmd=         " rebalance windows when vim is resized
+autocmd VimResized * :wincmd =         " rebalance windows when vim is resized
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
