@@ -64,6 +64,7 @@ set showcmd                            " Show incomplete commands
 
 autocmd VimResized * :wincmd =         " rebalance windows when vim is resized
 
+set list listchars=trail:·,nbsp:·      " show trailing whitespace
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""" TABS AND SPACES """""""""""""""""""""""""""""""""""""""""
