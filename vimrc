@@ -155,6 +155,8 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>                 " use <s-tab> to choose from drop-down
 
+autocmd InsertEnter * set noignorecase " consider case when autocompleting
+autocmd InsertLeave * set ignorecase   " ignore case the rest of the time
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""" ETC """""""""""""""""""""""""""""""""""""""""
