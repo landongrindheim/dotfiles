@@ -98,6 +98,8 @@ nnoremap <c-l> <c-w>l                  " move to split to the right
 
 map <leader>i mmgg=G`m                 " auto-indent entire file
 
+cmap w!! %!sudo tee > /dev/null %     " use :w!! to save with sudo
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""" REGEXP MATCHING """""""""""""""""""""""""""""""""""""""""
