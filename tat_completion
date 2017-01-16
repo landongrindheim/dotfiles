@@ -1,0 +1,21 @@
+_not_in_tmux() {
+  [[ -z "$TMUX" ]]
+}
+
+_tmux_sessions() {
+  if _not_in_tmux; then
+      tmux ls -F '#S' | sed -E 's/:.*$//'
+  else
+      tmux ls -F '#S' | sed -E 's/:.*$//' | grep -v "^$(tmux display-message -p '#S')\$"
+  fi
+}
+
+_tat() {
+    TMUX_SESSIONS=$(_tmux_sessions)
+
+    local cur=${COMP_WORDS[COMP_CWORD]}
+
+    COMPREPLY=( $(compgen -W "$TMUX_SESSIONS" -- $cur) )
+}
+
+complete -F _tat tat
