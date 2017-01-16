@@ -1,0 +1,7 @@
+for file in ~/.bash_completion.d/*
+do
+  if [ \( -f $file -o -h $file \) -a -r $file ]; then
+    # if the file is a readable file or symlink, source it
+    . $file
+  fi
+done
