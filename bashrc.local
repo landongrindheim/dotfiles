@@ -27,3 +27,12 @@ PS1="\[${BLUE}\]\u@\h\[${RESET}\] \[${YELLOW}\]\$(parse_git_branch)\$(git_status
 
 # add dotfiles bin to path
 export PATH=$PATH:$HOME/.bin
+
+# use `g` like git
+g() {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status
+  fi
+}

@@ -3,6 +3,8 @@
   email = landon.grindheim@gmail.com
 [alias]
   co = checkout
+  uncommit = reset --soft HEAD^
+  unstage = reset
 [color]
   diff = auto
   status = auto
