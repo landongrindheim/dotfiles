@@ -63,6 +63,7 @@ set showcmd                            " Show incomplete commands
 
 set splitbelow                         " open splits below the current buffer
 set splitright                         " open splits to the right
+set diffopt+=vertical                  " view diffs vertically
 autocmd VimResized * :wincmd =         " rebalance windows when vim is resized
 
 set list listchars=trail:·,nbsp:·      " show trailing whitespace
