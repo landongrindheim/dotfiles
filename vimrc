@@ -61,6 +61,8 @@ set ruler                              " show current position in status bar
 set laststatus=2                       " always show status bar
 set showcmd                            " Show incomplete commands
 
+set splitbelow                         " open splits below the current buffer
+set splitright                         " open splits to the right
 autocmd VimResized * :wincmd =         " rebalance windows when vim is resized
 
 set list listchars=trail:·,nbsp:·      " show trailing whitespace
