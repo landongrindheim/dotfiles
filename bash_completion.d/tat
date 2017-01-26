@@ -4,9 +4,9 @@ _not_in_tmux() {
 
 _tmux_sessions() {
   if _not_in_tmux; then
-      tmux ls -F '#S' | sed -E 's/:.*$//'
+      tmux ls -F '#S' 2> /dev/null | sed -E 's/:.*$//'
   else
-      tmux ls -F '#S' | sed -E 's/:.*$//' | grep -v "^$(tmux display-message -p '#S')\$"
+      tmux ls -F '#S' 2> /dev/null | sed -E 's/:.*$//' | grep -v "^$(tmux display-message -p '#S')\$"
   fi
 }
 
