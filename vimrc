@@ -89,8 +89,6 @@ inoremap <c-c> <esc>                   " ctrl-c escapes insert mode
 inoremap jj <esc>                      " jj escapes insert mode
 inoremap jk <esc>                      " jk escapes insert mode, seriously
 
-nnoremap K <Nop>                       " don't open man pages with K
-
 nnoremap <Tab> :bnext<cr>              " tab opens next buffer
 nnoremap <S-Tab> :bprevious<cr>        " shift-tab opens previous buffer
 
@@ -103,6 +101,12 @@ map <leader>i mmgg=G`m                 " auto-indent entire file
 nnoremap <leader>n :%s///gn<cr>        " count matches in current file
 
 cmap w!! %!sudo tee > /dev/null %      " use :w!! to save with sudo
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""" NO-OPS """""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap K <Nop>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
