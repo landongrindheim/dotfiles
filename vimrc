@@ -94,10 +94,10 @@ inoremap jk <esc>
 nnoremap <Tab> :bnext<cr>
 nnoremap <S-Tab> :bprevious<cr>
                                        " split navigation
-nnoremap <c-j> :TmuxNavigateDown<cr>
-nnoremap <c-k> :TmuxNavigateUp<cr>
-nnoremap <c-h> :TmuxNavigateLeft<cr>
-nnoremap <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent><c-j> :TmuxNavigateDown<cr>
+nnoremap <silent><c-k> :TmuxNavigateUp<cr>
+nnoremap <silent><c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent><c-l> :TmuxNavigateRight<cr>
                                        " auto-indent entire file
 map <leader>i mmgg=G`m
                                        " count matches in current file
