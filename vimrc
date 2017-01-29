@@ -68,6 +68,7 @@ autocmd VimResized * :wincmd =         " rebalance windows when vim is resized
 
 set list listchars=trail:·,nbsp:·      " show trailing whitespace
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""" TABS AND SPACES """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -84,30 +85,29 @@ set smartindent                        " indent to the right place
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""" CUSTOM KEY MAPPINGS """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=","                      " use comma for custom commands
-inoremap <c-c> <esc>                   " ctrl-c escapes insert mode
-inoremap jj <esc>                      " jj escapes insert mode
-inoremap jk <esc>                      " jk escapes insert mode, seriously
-
-nnoremap <Tab> :bnext<cr>              " tab opens next buffer
-nnoremap <S-Tab> :bprevious<cr>        " shift-tab opens previous buffer
-
-nnoremap <c-j> <c-w>j                  " move to split to the left
-nnoremap <c-k> <c-w>k                  " move to split above
-nnoremap <c-h> <c-w>h                  " move to split below
-nnoremap <c-l> <c-w>l                  " move to split to the right
-
-map <leader>i mmgg=G`m                 " auto-indent entire file
-nnoremap <leader>n :%s///gn<cr>        " count matches in current file
-
-cmap w!! %!sudo tee > /dev/null %      " use :w!! to save with sudo
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""" NO-OPS """""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader='\<space>'
+                                       " <c-c>, jk, kj  now act just like <esc>
+inoremap <c-c> <esc>
+inoremap jj <esc>
+inoremap jk <esc>
+                                       " buffer navigation
+nnoremap <Tab> :bnext<cr>
+nnoremap <S-Tab> :bprevious<cr>
+                                       " split navigation
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+                                       " auto-indent entire file
+map <leader>i mmgg=G`m
+                                       " count matches in current file
+nnoremap <leader>n :%s///gn<cr>
+                                       " use :w!! to save with sudo
+cmap w!! %!sudo tee > /dev/null %
+                                       " don't let K open man pages
 nnoremap K <Nop>
-
+                                       " turn off match highlighting
+nnoremap <leader><leader> :noh<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""" REGEXP MATCHING """""""""""""""""""""""""""""""""""""""""
@@ -115,7 +115,6 @@ nnoremap K <Nop>
 set ignorecase                         " ignore case when searching
 set smartcase                          " unless you specify case
 set hlsearch                           " highlight matches
-nnoremap <leader><leader> :noh<cr>     " turn off match highlighting
 set incsearch                          " show first match while typing
 
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
@@ -167,6 +166,7 @@ inoremap <s-tab> <c-n>                 " use <s-tab> to choose from drop-down
 
 autocmd InsertEnter * set noignorecase " consider case when autocompleting
 autocmd InsertLeave * set ignorecase   " ignore case the rest of the time
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""" ETC """""""""""""""""""""""""""""""""""""""""
