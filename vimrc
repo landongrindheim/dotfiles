@@ -9,7 +9,7 @@ set rtp+=~/.vim/bundle/Vundle.vim      " set vundle path
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""" PLUGINS """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call vundle#rc()                       " load plugins
+call vundle#begin()                    " load plugins
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ctrlpvim/ctrlp.vim'
