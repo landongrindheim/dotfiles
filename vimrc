@@ -85,7 +85,7 @@ set smartindent                        " indent to the right place
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""" CUSTOM KEY MAPPINGS """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader='\<space>'
+let mapleader="\<space>"
                                        " <c-c>, jk, kj  now act just like <esc>
 inoremap <c-c> <esc>
 inoremap jj <esc>
@@ -94,10 +94,10 @@ inoremap jk <esc>
 nnoremap <Tab> :bnext<cr>
 nnoremap <S-Tab> :bprevious<cr>
                                        " split navigation
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+nnoremap <c-j> :TmuxNavigateDown<cr>
+nnoremap <c-k> :TmuxNavigateUp<cr>
+nnoremap <c-h> :TmuxNavigateLeft<cr>
+nnoremap <c-l> :TmuxNavigateRight<cr>
                                        " auto-indent entire file
 map <leader>i mmgg=G`m
                                        " count matches in current file
@@ -108,6 +108,9 @@ cmap w!! %!sudo tee > /dev/null %
 nnoremap K <Nop>
                                        " turn off match highlighting
 nnoremap <leader><leader> :noh<cr>
+                                       " source this file
+nmap <leader>s :source $MYVIMRC<cr>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""" REGEXP MATCHING """""""""""""""""""""""""""""""""""""""""
@@ -162,7 +165,7 @@ function! InsertTabWrapper()           " use completion unless at line beginning
     endif
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>                 " use <s-tab> to choose from drop-down
+inoremap <s-tab> <c-n>
 
 autocmd InsertEnter * set noignorecase " consider case when autocompleting
 autocmd InsertLeave * set ignorecase   " ignore case the rest of the time
