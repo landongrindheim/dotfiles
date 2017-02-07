@@ -93,7 +93,8 @@ inoremap jk <esc>
                                        " buffer navigation
 nnoremap <Tab> :bnext<cr>
 nnoremap <S-Tab> :bprevious<cr>
-                                       " split navigation
+                                       " split navigation, TmuxNavigate(Dir)
+                                       " is used in place of <c-h>, <c-j>, etc
 nnoremap <silent><c-j> :TmuxNavigateDown<cr>
 nnoremap <silent><c-k> :TmuxNavigateUp<cr>
 nnoremap <silent><c-h> :TmuxNavigateLeft<cr>
@@ -155,6 +156,7 @@ set noswapfile                         " don't create swapfiles
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""" TAB COMPLETION """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set wildmenu
 set wildmode=list:longest,list:full    " set the completion corpus
 function! InsertTabWrapper()           " use completion unless at line beginning
   let col = col('.') - 1
