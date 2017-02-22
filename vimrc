@@ -81,6 +81,7 @@ set smarttab                           " from line beginning, go to next indent
 set autoindent                         " turn on indenting
 set smartindent                        " indent to the right place
 
+set complete=.,w                  " only complete words in open buffers
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""" CUSTOM KEY MAPPINGS """""""""""""""""""""""""""""""""""""""""
