@@ -4,9 +4,9 @@ Config files for Git, Bash, Vim and Tmux. Plenty taken from [Ben Ornstein](https
 
 ## Installation
 
-  `git clone git://github.com/landongrindheim/dotfiles ~/dotfiles`
-  `cd ~/dotfiles`
-  `rake install`
+  `git clone git://github.com/landongrindheim/dotfiles ~/dotfiles`  
+  `cd ~/dotfiles`  
+  `rake install`  
 
   Vim plugins are managed through vundle. You'll need to install vundle to get them.
 

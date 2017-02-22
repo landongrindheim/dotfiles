@@ -42,5 +42,5 @@ def link_file(file)
 end
 
 def files_to_ignore
-  %w(Rakefile README.md LICENSE tat_completion)
+  %w(Rakefile README.md LICENSE)
 end
