@@ -113,6 +113,9 @@ nnoremap <leader><leader> :noh<cr>
                                        " source this file
 nmap <leader>s :source $MYVIMRC<cr>
 
+                                       " navigate ctags with left and right
+nmap <left> :tprev<cr>
+nmap <right> :tnext<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""" REGEXP MATCHING """""""""""""""""""""""""""""""""""""""""
