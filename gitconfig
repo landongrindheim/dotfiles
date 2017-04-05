@@ -5,6 +5,7 @@
   co = checkout
   uncommit = reset --soft HEAD^
   unstage = reset
+  staged = diff --cached
 [color]
   diff = auto
   status = auto
