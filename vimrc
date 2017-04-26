@@ -68,6 +68,8 @@ autocmd VimResized * :wincmd =         " rebalance windows when vim is resized
 
 set list listchars=trail:·,nbsp:·      " show trailing whitespace
 
+autocmd FileType gitcommit setlocal spell " spell check commit messages
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""" TABS AND SPACES """""""""""""""""""""""""""""""""""""""""
