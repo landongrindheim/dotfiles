@@ -1,6 +1,6 @@
 # Landon Grindheim's dot files
 
-Config files for Git, Bash, Vim and Tmux. Plenty taken from [Ben Ornstein](https://github.com/r00k/dotfiles)
+Config files for Git, Bash, Vim and Tmux
 
 ## Installation
 
