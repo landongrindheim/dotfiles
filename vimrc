@@ -38,7 +38,8 @@ set autoread                           " auto-read file when it has changed
 """"""" COLORS AND SYNTAX HIGHLIGHTING """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme solarized                  " use solarized colorscheme
-set background=dark                    " dark theme by default
+"set background=dark                    " dark theme by default
+set background=light                   " light theme for Dashcon talk
 set t_Co=256                           " use screen-256 colors
 
 syntax on                              " turn on syntax highlighting
