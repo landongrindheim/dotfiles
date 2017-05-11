@@ -12,4 +12,4 @@ Config files for Git, Bash, Vim and Tmux
 
   `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
-  Run :BundleInstall within vim.
+  Run Vim, installing plugins on startup `vim +PluginInstall`
