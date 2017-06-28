@@ -142,6 +142,7 @@ endfunction
 """"""""""""""""" CTRL-P CONFIGURATION """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set path=$PWD/**                       " search from the current directory
+let g:ctrlp_regexp=1                   " use regex mode by default
 if executable('ag')                    " use ag if available
   set grepprg=ag\ --nogroup\ --nocolor
 
