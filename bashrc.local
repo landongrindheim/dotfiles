@@ -49,3 +49,7 @@ _gg() {
   fi
 }
 alias gg=_gg
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source ~/.bashrc.mac
+fi
