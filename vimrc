@@ -111,7 +111,7 @@ cmap w!! %!sudo tee > /dev/null %
                                        " don't let K open man pages
 nnoremap K <Nop>
                                        " turn off match highlighting
-nnoremap <leader><leader> :noh<cr>
+nnoremap <leader><leader> :nohl<cr>
                                        " source this file
 nmap <leader>s :source $MYVIMRC<cr>
 
