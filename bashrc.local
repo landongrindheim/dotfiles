@@ -36,3 +36,16 @@ g() {
     git status
   fi
 }
+
+_gg() {
+  if [[ -z "$(git rev-parse --is-inside-working-tree 2> /dev/null)" ]]; then
+    if [[ -n "$(command -v ag 2> /dev/null)" ]]; then
+      ag "$@"
+    else
+      grep -r "$@" .
+    fi
+  else
+    git grep "$@"
+  fi
+}
+alias gg=_gg
