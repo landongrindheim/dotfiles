@@ -6,6 +6,7 @@
   uncommit = reset --soft HEAD^
   unstage = reset
   staged = diff --cached
+  ctags = "!.git/hooks/ctags"
 [color]
   diff = auto
   status = auto
