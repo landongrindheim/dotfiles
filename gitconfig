@@ -19,6 +19,7 @@
 [github]
   user = landongrindheim
 [merge]
+  conflictstyle = diff3
   ff = only
 [fetch]
   prune = true
