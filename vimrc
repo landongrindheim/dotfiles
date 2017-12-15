@@ -115,7 +115,8 @@ nnoremap K <Nop>
 nnoremap <leader><leader> :nohl<cr>
                                        " source this file
 nmap <leader>s :source $MYVIMRC<cr>
-
+                                       " clear all trailing white space
+nmap <leader>w :%s/\s\+$//e<cr>
                                        " navigate ctags with left and right
 nmap <left> :tprev<cr>
 nmap <right> :tnext<cr>
