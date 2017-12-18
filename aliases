@@ -1,3 +1,4 @@
+# vim: set filetype=sh:
 alias ll='ls -lG'
 alias vi=vim
 alias dotfiles='cd ~/dotfiles'

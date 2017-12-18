@@ -1,3 +1,5 @@
+# vim: set filetype=tmux:
+
 #  set 'v' to begin selection as in Vim
 bind -t vi-copy v begin-selection
 
