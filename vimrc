@@ -128,6 +128,7 @@ set ignorecase                         " ignore case when searching
 set smartcase                          " unless you specify case
 set hlsearch                           " highlight matches
 set incsearch                          " show first match while typing
+set iskeyword+=-                       " consider words with dashes one word
 
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
