@@ -84,7 +84,6 @@ set smarttab                           " from line beginning, go to next indent
 set autoindent                         " turn on indenting
 set smartindent                        " indent to the right place
 
-set complete=.,w                       " only complete words in open buffers
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""" CUSTOM KEY MAPPINGS """""""""""""""""""""""""""""""""""""""""
@@ -120,6 +119,7 @@ nmap <leader>w :%s/\s\+$//e<cr>
                                        " navigate ctags with left and right
 nmap <left> :tprev<cr>
 nmap <right> :tnext<cr>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""" REGEXP MATCHING """""""""""""""""""""""""""""""""""""""""
@@ -168,6 +168,7 @@ set noswapfile                         " don't create swapfiles
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildmenu
 set wildmode=list:longest,list:full    " set the completion corpus
+set complete=.,w                       " only complete words in open buffers
 function! InsertTabWrapper()           " use completion unless at line beginning
   let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
