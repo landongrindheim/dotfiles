@@ -104,6 +104,8 @@ nnoremap <silent><c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent><c-l> :TmuxNavigateRight<cr>
                                        " auto-indent entire file
 map <leader>i mmgg=G`m
+                                       " convert Ruby hashes to 1.9 syntax
+nnoremap <leader>hr :%s/:\([^=,'"]*\) =>/\1:/gc<cr>
                                        " count matches in current file
 nnoremap <leader>n :%s///gn<cr>
                                        " use :w!! to save with sudo
