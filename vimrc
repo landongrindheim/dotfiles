@@ -12,10 +12,11 @@ set rtp+=~/.vim/bundle/Vundle.vim      " set vundle path
 call vundle#begin()                    " load plugins
 
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'itchyny/lightline.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
@@ -144,17 +145,13 @@ endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""" CTRL-P CONFIGURATION """""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""" FZF CONFIGURATION """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set path=$PWD/**                       " search from the current directory
-let g:ctrlp_regexp=1                   " use regex mode by default
-if executable('ag')                    " use ag if available
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
-
-  let g:ctrlp_use_caching=0
-endif
+nnoremap <C-p> :GFiles <cr>
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
