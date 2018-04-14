@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# lifted verbatim from @jasonrudolph
+# https://github.com/jasonrudolph/dotfiles/blob/master/bin/ipecho
+
+curl http://bot.whatismyipaddress.com
+echo
