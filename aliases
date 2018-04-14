@@ -12,6 +12,8 @@ _g() {
   fi
 }
 alias g=_g
+# enable completion for `g`
+__git_complete g _git
 
 _gg() {
   if [[ -z "$(git rev-parse --is-inside-working-tree 2> /dev/null)" ]]; then
