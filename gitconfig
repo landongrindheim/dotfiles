@@ -2,7 +2,6 @@
   name = Landon Grindheim
   email = landon.grindheim@gmail.com
 [alias]
-  co = checkout
   uncommit = reset --soft HEAD^
   unstage = reset
   staged = diff --cached
@@ -22,7 +21,6 @@
 [merge]
   conflictstyle = diff3
   ff = only
-  conflictstyle = diff3
 [fetch]
   prune = true
 [init]
