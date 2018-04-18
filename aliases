@@ -6,7 +6,7 @@ alias dotfiles='cd ~/dotfiles'
 # use `g` like git
 _g() {
   if [[ $# > 0 ]]; then
-    git $@
+    git "$@"
   else
     git status
   fi
