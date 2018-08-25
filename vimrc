@@ -14,6 +14,7 @@ call vundle#begin()                    " load plugins
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'ElmCast/elm-vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
