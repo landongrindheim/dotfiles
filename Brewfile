@@ -23,6 +23,7 @@ brew "vim"
 brew "wget"
 brew "yarn"
 
+cask "docker"
 cask "firefox"
 cask "google-chrome"
 cask "iterm2"
