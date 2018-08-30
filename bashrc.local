@@ -44,3 +44,7 @@ fi
 if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
+
+if [ -f ~/.fzf.bash ]; then
+  source ~/.fzf.bash
+fi
