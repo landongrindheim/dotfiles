@@ -25,6 +25,7 @@ brew "yarn"
 
 cask "docker"
 cask "firefox"
+cask "licecap"
 cask "google-chrome"
 cask "iterm2"
 cask "zoomus"
