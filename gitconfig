@@ -1,6 +1,5 @@
 [user]
   name = Landon Grindheim
-  email = landon.grindheim@gmail.com
 [alias]
   uncommit = reset --soft HEAD^
   unstage = reset
@@ -17,8 +16,6 @@
   editor = vim --noplugin
 [apply]
   whitespace = nowarn
-[github]
-  user = landongrindheim
 [merge]
   conflictstyle = diff3
   ff = only
@@ -26,3 +23,9 @@
   prune = true
 [init]
   templatedir = "~/.git_template"
+[includeIf "gitdir:~/dev/"]
+  path = .gitconfig-work
+[includeIf "gitdir:~/dotfiles/"]
+  path = .gitconfig-home
+[includeIf "gitdir:~/oss/"]
+  path = .gitconfig-home
