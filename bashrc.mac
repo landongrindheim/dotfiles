@@ -8,8 +8,8 @@ if [ -f $(brew --prefix)/bin/ctags ]; then
   alias ctags="`brew --prefix`/bin/ctags"
 fi
 
-# use Vim 8 if it's installed in the directory below
-if [ -f /opt/local/bin/vim ]; then
-  PATH=/opt/local/bin:$PATH
+if [ -f ~/.asdf/asdf.sh ]; then
+  . ~/.asdf/asdf.sh
+  . ~/.asdf/completions/asdf.bash
 fi
 
