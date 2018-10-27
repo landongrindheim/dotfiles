@@ -23,9 +23,7 @@
   prune = true
 [init]
   templatedir = "~/.git_template"
+[include]
+  path = .gitconfig-home
 [includeIf "gitdir:~/dev/"]
   path = .gitconfig-work
-[includeIf "gitdir:~/dotfiles/"]
-  path = .gitconfig-home
-[includeIf "gitdir:~/oss/"]
-  path = .gitconfig-home
