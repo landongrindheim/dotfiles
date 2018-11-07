@@ -27,3 +27,5 @@
   path = .gitconfig-home
 [includeIf "gitdir:~/dev/"]
   path = .gitconfig-work
+[includeIf "gitdir:~/vagrant/"]
+  path = .gitconfig-work
