@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# I've been having a LOT of issues with my audio input/output
+# being hijacked by different programs. This command resets audio
+#
+sudo killall coreaudiod
