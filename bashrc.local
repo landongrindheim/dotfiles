@@ -37,6 +37,10 @@ export FZF_DEFAULT_COMMAND='
     sed s/^..//) 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+if [ -f ~/.fzf.bash ]; then
+  source ~/.fzf.bash
+fi
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   source ~/.bashrc.mac
 fi
@@ -45,6 +49,6 @@ if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
 
-if [ -f ~/.fzf.bash ]; then
-  source ~/.fzf.bash
+if [ -f ~/.editor ]; then
+  source ~/.editor
 fi
