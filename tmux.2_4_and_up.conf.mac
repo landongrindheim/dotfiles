@@ -1,0 +1,12 @@
+# vim: set filetype=tmux:
+
+# setup 'v' to begin selection as in Vim
+bind -T copy-mode-vi v send -X begin-selection
+
+# setup 'y' to copy (yank), as in Vim
+# Copying.
+bind -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+
+# copy with <enter> as well
+unbind -T copy-mode-vi Enter
+bind -T copy-mode-vi Enter send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
