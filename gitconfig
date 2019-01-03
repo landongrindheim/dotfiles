@@ -1,6 +1,7 @@
 [user]
   name = Landon Grindheim
 [alias]
+  track = add -N
   uncommit = reset --soft HEAD^
   unstage = reset
   staged = diff --cached
