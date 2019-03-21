@@ -151,6 +151,7 @@ endfunction
 nnoremap <C-p> :GFiles <cr>
 let g:fzf_action = {
       \ 'ctrl-s': 'split',
+      \ 'ctrl-x': 'split',
       \ 'ctrl-v': 'vsplit'
       \ }
 
