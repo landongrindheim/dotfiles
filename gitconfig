@@ -12,6 +12,8 @@
   diff = auto
   status = auto
   branch = auto
+[commit]
+  verbose = true
 [core]
   excludesfile = ~/.gitignore
   editor = vim --noplugin
