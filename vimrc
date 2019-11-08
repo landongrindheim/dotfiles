@@ -114,6 +114,8 @@ nnoremap <leader>n :%s///gn<cr>
 cmap w!! %!sudo tee > /dev/null %
                                        " don't let K open man pages
 nnoremap K <Nop>
+                                       " don't enter Ex mode
+nnoremap Q <Nop>
                                        " turn off match highlighting
 nnoremap <leader><leader> :nohl<cr>
                                        " source this file
