@@ -185,11 +185,3 @@ inoremap <s-tab> <c-n>
 
 autocmd InsertEnter * set noignorecase " consider case when autocompleting
 autocmd InsertLeave * set ignorecase   " ignore case the rest of the time
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""" ETC """""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('mouse')                        " allow mouse use if present
-  set mouse=a
-endif
