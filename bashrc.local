@@ -30,6 +30,8 @@ PS1="\[${BLUE}\]\u\[${RESET}\] \[${YELLOW}\]\$(parse_git_branch)\$(git_status_fl
 # add dotfiles bin to path
 export PATH=$PATH:$HOME/.bin
 
+HISTTIMEFORMAT="%m/%d %T "
+
 # shell configuration for FZF
 export FZF_DEFAULT_COMMAND='
 (git ls-tree -r --name-only HEAD ||
