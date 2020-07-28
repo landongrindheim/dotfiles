@@ -19,6 +19,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mhinz/vim-mix-format'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
@@ -185,3 +186,10 @@ inoremap <s-tab> <c-n>
 
 autocmd InsertEnter * set noignorecase " consider case when autocompleting
 autocmd InsertLeave * set ignorecase   " ignore case the rest of the time
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""" ELIXIR FORMATTING """"""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:mix_format_on_save = 1           " run `mix format` on write
