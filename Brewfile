@@ -12,6 +12,7 @@ tap "caskroom/cask"
 tap "homebrew/bundle"
 
 brew "bash-completion"
+brew "bat"
 brew "ctags"
 brew "fzf"
 brew "git"

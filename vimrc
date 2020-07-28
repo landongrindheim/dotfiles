@@ -158,6 +158,8 @@ let g:fzf_action = {
       \ 'ctrl-v': 'vsplit'
       \ }
 
+command! -bang -nargs=? -complete=dir GFiles
+    \ call fzf#vim#gitfiles(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat --style=numbers --theme="Solarized (dark)" --color=always {}']}, <bang>0)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""" FILES AND BACKUPS """""""""""""""""""""""""""""""""""""""""
