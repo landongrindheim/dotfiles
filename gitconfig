@@ -25,6 +25,7 @@
 [fetch]
   prune = true
 [init]
+  defaultBranch = main
   templatedir = "~/.git_template"
 [include]
   path = .gitconfig-home
