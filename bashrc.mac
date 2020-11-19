@@ -13,3 +13,5 @@ if [ -f ~/.asdf/asdf.sh ]; then
   . ~/.asdf/completions/asdf.bash
 fi
 
+# keep using bash in Catalina or newer
+export BASH_SILENCE_DEPRECATION_WARNING=1
