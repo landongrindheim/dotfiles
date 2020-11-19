@@ -8,7 +8,7 @@
 #
 # brew bundle --file=<path-to-Brewfile>
 
-tap "caskroom/cask"
+tap "homebrew/cask"
 tap "homebrew/bundle"
 
 brew "bash-completion"
