@@ -30,6 +30,7 @@ brew "yarn"
 
 cask "docker"
 cask "firefox"
+cask "hammerspoon"
 cask "licecap"
 cask "google-chrome"
 cask "iterm2"
