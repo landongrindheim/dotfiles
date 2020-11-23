@@ -22,6 +22,8 @@
 [merge]
   conflictstyle = diff3
   ff = only
+[pull]
+  ff = only
 [fetch]
   prune = true
 [init]
