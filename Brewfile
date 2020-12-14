@@ -28,6 +28,8 @@ brew "vim"
 brew "wget"
 brew "yarn"
 
+cask "1password"
+cask "alfred"
 cask "docker"
 cask "firefox"
 cask "hammerspoon"
