@@ -27,3 +27,6 @@ _gg() {
   fi
 }
 alias gg=_gg
+
+alias ..="cd .."
+alias ....="cd ../.."
