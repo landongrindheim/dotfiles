@@ -11,6 +11,7 @@
 tap "homebrew/cask"
 tap "homebrew/bundle"
 
+brew "bash"
 brew "bash-completion"
 brew "bat"
 brew "ctags"
