@@ -1,5 +1,8 @@
 [user]
+  email = landon.grindheim@gmail.com
   name = Landon Grindheim
+[github]
+  user = landongrindheim
 [alias]
   track = add -N
   uncommit = reset --soft HEAD^
