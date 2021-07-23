@@ -1,6 +1,7 @@
 [user]
   email = landon.grindheim@gmail.com
   name = Landon Grindheim
+  signingkey = 65AF36DDD5508E83
 [github]
   user = landongrindheim
 [alias]
@@ -16,6 +17,7 @@
   status = auto
   branch = auto
 [commit]
+  gpgsign = true
   verbose = true
 [core]
   excludesfile = ~/.gitignore

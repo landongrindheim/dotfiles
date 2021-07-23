@@ -15,3 +15,5 @@ fi
 
 # keep using bash in Catalina or newer
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+export GPG_TTY=$(tty)
