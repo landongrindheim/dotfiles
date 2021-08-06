@@ -1,0 +1,4 @@
+# vim: set filetype=sh:
+
+# add dotfiles bin to path
+export PATH=$PATH:$HOME/.bin

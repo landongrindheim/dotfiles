@@ -4,10 +4,12 @@
 rake install
 
 # set up homebrew
-if [ -n "$(command -v brew 2> /dev/null)" ]; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [ -n "$(command -v brew 2> /dev/null)" ]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+  brew bundle
 fi
-brew bundle
 
 # use Vundle to manage plugins, gotta have it first
 if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ];then
@@ -18,13 +20,13 @@ fi
 vim +PluginInstall +exit +exit
 
 
-local_bashrc="$HOME/.bashrc.local"
-source_script="[[ -s \"\$HOME/.bashrc.local\" ]] && source \"\$HOME/.bashrc.local\""
+bashrc="$HOME/.bashrc"
+source_script="[[ -s \"\$HOME/.bashrc\" ]] && source \"\$HOME/.bashrc\""
 
 # add custom bash config to ~/.bash_profile
 touch "$HOME/.bash_profile"
 bash_profile="$HOME/.bash_profile"
-if [ -f ${local_bashrc} ]; then
+if [ -f ${bashrc} ]; then
   # source ~/.bashrc.local in ~/.bash_profile if it isn't already
   grep -qF "${source_script}" ${bash_profile} || echo ${source_script} >> ${bash_profile}
 fi
