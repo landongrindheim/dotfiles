@@ -5,6 +5,7 @@
 [github]
   user = landongrindheim
 [alias]
+  rename = branch -m
   track = add -N
   uncommit = reset --soft HEAD^
   unstage = reset
