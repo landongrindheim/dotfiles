@@ -1,5 +1,0 @@
-vim/bundle
-bundle/cache
-
-# keep secrets out of Git
-bashrc.d/30-secrets
