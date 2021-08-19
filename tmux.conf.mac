@@ -1,4 +1,0 @@
-# vim: set filetype=tmux:
-set -g default-command "reattach-to-user-namespace -l bash"
-is_tmate='echo "$TMUX" | grep -q "tmate"'
-if-shell "$is_tmate" "" "source-file ~/.tmux.2_4_and_up.conf.mac"
