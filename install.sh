@@ -48,8 +48,20 @@ install_dotfiles() {
   done
 }
 
+configure_vim() {
+  if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ];then
+    git clone https://github.com/VundleVim/Vundle.vim.git "$HOME/vim/bundle/"
+  fi
+
+  # open Vim, install plugins, then close Vim (exit Vundle window, then Vim)
+  vim +PluginInstall +exit +exit
+}
+
 success "🏗️ symlinking dotfiles"
 install_dotfiles
+
+success "🏗️ configuring Vim"
+configure_vim
 
 success "🎉🎉🎉 all done 🎉🎉🎉"
 success "Make sure to run 'source ~/.bashrc'"
