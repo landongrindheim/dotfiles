@@ -53,8 +53,8 @@ install_dotfiles() {
 }
 
 configure_vim() {
-  if [ ! -f "$HOME/.vim/bundle/Vundle.vim" ];then
-    git clone https://github.com/VundleVim/Vundle.vim.git "$HOME/vim/bundle/"
+  if [ ! -f vim/bundle/Vundle.vim ];then
+    git clone https://github.com/VundleVim/Vundle.vim.git vim/bundle/
   fi
 
   # open Vim, install plugins, then close Vim (exit Vundle window, then Vim)
