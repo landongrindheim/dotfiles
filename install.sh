@@ -26,7 +26,7 @@ install_dotfiles() {
     if [ -f "$destination" -o -d "$destination" -o -L "$destination" ]; then
       warning "⚠️  ~/$(basename $destination) already exists. Override? [y]es [n]o [q]uit"
 
-      read -n 1 response
+      read response
 
       case "$response" in
         Y | y )
