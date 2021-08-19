@@ -41,7 +41,7 @@ set autoread                           " auto-read file when it has changed
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""" COLORS AND SYNTAX HIGHLIGHTING """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme solarized                  " use solarized colorscheme
+silent! colorscheme solarized          " use solarized colorscheme
 set background=dark                    " dark theme by default
 set t_Co=256                           " use screen-256 colors
 
