@@ -47,7 +47,7 @@ install_dotfiles() {
           ;;
       esac
     else
-      symlink "$symlinkable" "$destination"
+      symlink "$(pwd -P)/$symlinkable" "$destination"
     fi
   done
 }
