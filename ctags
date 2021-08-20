@@ -1,5 +1,7 @@
 --exclude=.git
 --exclude=db
+--exclude=doc
+--exclude=docs
 --exclude=log
 --exclude=node_modules
 --exclude=public
