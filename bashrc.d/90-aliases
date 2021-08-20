@@ -36,4 +36,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   if [ -f $(brew --prefix)/bin/ctags ]; then
     alias ctags="`brew --prefix`/bin/ctags"
   fi
+else
+  alias pbcopy='xclip -selection clipboard'
 fi
