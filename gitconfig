@@ -35,9 +35,7 @@
 [init]
   defaultBranch = main
   templatedir = "~/.git_template"
-[include]
-  path = .gitconfig-home
-[includeIf "gitdir:~/dev/"]
-  path = .gitconfig-work
-[url "ssh://git@github.com:"]
-  insteadOf = https://github.com
+[includeIf "gitdir:/workspace/"]
+  path = .gitconfig-http
+[includeIf "gitdir:/Users/me/"]
+  path = .gitconfig-ssh
