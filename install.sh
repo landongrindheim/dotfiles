@@ -61,6 +61,18 @@ configure_vim() {
   vim +PlugInstall +exit +exit
 }
 
+install_packages() {
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    if [ -n "$(command -v brew 2> /dev/null)" ]; then
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    brew bundle
+  else
+    apt-get update -y
+    apt-get install -y --no-install-recommends $(tr '\n' ' ' < ./linux-packages)
+  fi
+}
+
 source_bashrc() {
   bashrc="$HOME/.bashrc"
   sourcing_script="[[ -s \"\$HOME/.bashrc\" ]] && source \"\$HOME/.bashrc\""
