@@ -61,6 +61,18 @@ configure_vim() {
   vim +PlugInstall +exit +exit
 }
 
+source_bashrc() {
+  bashrc="$HOME/.bashrc"
+  sourcing_script="[[ -s \"\$HOME/.bashrc\" ]] && source \"\$HOME/.bashrc\""
+
+  touch "$HOME/.bash_profile"
+  bash_profile="$HOME/.bash_profile"
+  if [ -f ${bashrc} ]; then
+    # source ~/.bashrc.local in ~/.bash_profile if it isn't already
+    grep -qF "${source_script}" ${bash_profile} || echo ${source_script} >> ${bash_profile}
+  fi
+}
+
 success "🏗️ symlinking dotfiles"
 install_dotfiles
 
