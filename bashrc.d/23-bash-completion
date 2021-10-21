@@ -4,11 +4,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
   fi
-
-  for file in $HOME/.bash_completion.d/*; do
-    # if the file is a readable file or a symlink
-    if [ \( -f $file -o -h $file \) -a -r $file ]; then
-      source $file
-    fi
-  done
 fi
+
+for file in $HOME/.bash_completion.d/*; do
+  # if the file is a readable file or a symlink
+  if [ \( -f $file -o -h $file \) -a -r $file ]; then
+    source $file
+  fi
+done
