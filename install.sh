@@ -53,12 +53,12 @@ install_dotfiles() {
 }
 
 configure_vim() {
-  if [ ! -d vim/bundle/Vundle.vim ];then
-    git clone https://github.com/VundleVim/Vundle.vim.git vim/bundle/Vundle.vim
+  if [ ! -d vim/autoload/plug.vim ];then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   fi
 
-  # open Vim, install plugins, then close Vim (exit Vundle window, then Vim)
-  vim +PluginInstall +exit +exit
+  # open Vim, install plugins, then close Vim (exit Vim-Plug window, then Vim)
+  vim +PlugInstall +exit +exit
 }
 
 success "🏗️ symlinking dotfiles"
