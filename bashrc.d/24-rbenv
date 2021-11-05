@@ -1,3 +1,5 @@
 export PATH="$HOME/.rbenv/bin:$PATH"
 
-eval "$(rbenv init -)"
+if [[ -n "$(command -v rbenv 2> /dev/null)" ]]; then
+  eval "$(rbenv init -)"
+fi
