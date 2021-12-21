@@ -73,7 +73,7 @@ install_packages() {
   fi
 }
 
-source_bashrc() {
+configure_login_shell() {
   bashrc="$HOME/.bashrc"
   sourcing_script="[[ -s \"\$HOME/.bashrc\" ]] && source \"\$HOME/.bashrc\""
 
@@ -90,6 +90,9 @@ install_dotfiles
 
 success "🏗️ configuring Vim"
 configure_vim
+
+success "🏗️ configuring login shell"
+configure_login_shell
 
 success "🎉🎉🎉 all done 🎉🎉🎉"
 success "Make sure to run 'source ~/.bashrc'"
