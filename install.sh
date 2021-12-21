@@ -52,17 +52,8 @@ install_dotfiles() {
   done
 }
 
-configure_vim() {
-  if [ ! -d vim/autoload/plug.vim ];then
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  fi
-
-  # open Vim, install plugins, then close Vim (exit Vim-Plug window, then Vim)
-  vim +PlugInstall +exit +exit
-}
-
 install_packages() {
-  if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [ "$OSTYPE" == "darwin"* ]; then
     if [ -n "$(command -v brew 2> /dev/null)" ]; then
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
@@ -71,6 +62,15 @@ install_packages() {
     apt-get update -y
     apt-get install -y --no-install-recommends $(tr '\n' ' ' < ./linux-packages)
   fi
+}
+
+configure_vim() {
+  if [ ! -d vim/autoload/plug.vim ];then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  fi
+
+  # open Vim, install plugins, then close Vim (exit Vim-Plug window, then Vim)
+  vim +PlugInstall +exit +exit
 }
 
 configure_login_shell() {
