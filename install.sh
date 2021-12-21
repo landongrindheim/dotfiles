@@ -88,6 +88,9 @@ configure_login_shell() {
 success "🏗️ symlinking dotfiles"
 install_dotfiles
 
+success "🏗️ installing packages"
+install_packages
+
 success "🏗️ configuring Vim"
 configure_vim
 
