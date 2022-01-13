@@ -59,8 +59,8 @@ install_packages() {
     fi
     brew bundle
   else
-    apt-get update -y
-    apt-get install -y --no-install-recommends $(tr '\n' ' ' < ./linux-packages)
+    sudo apt-get update -y
+    sudo apt-get install -y --no-install-recommends $(tr '\n' ' ' < ./linux-packages)
   fi
 }
 
