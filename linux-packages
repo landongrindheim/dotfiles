@@ -1,5 +1,6 @@
 bash-completion
 exuberant-ctags
+fish
 fzf
 silversearcher-ag
 vim
