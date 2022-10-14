@@ -21,7 +21,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mhinz/vim-mix-format'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -189,7 +188,6 @@ inoremap <s-tab> <c-n>
 
 autocmd InsertEnter * set noignorecase " consider case when autocompleting
 autocmd InsertLeave * set ignorecase   " ignore case the rest of the time
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""" ELIXIR FORMATTING """"""""""""""""""""""""""""""""""""""""
