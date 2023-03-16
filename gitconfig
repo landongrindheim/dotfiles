@@ -27,7 +27,6 @@
   whitespace = nowarn
 [merge]
   conflictstyle = diff3
-  ff = only
 [pull]
   ff = only
 [fetch]
