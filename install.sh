@@ -84,8 +84,5 @@ install_packages
 success "🏗️ configuring Vim"
 configure_vim
 
-success "🏗️ configuring login shell"
-configure_login_shell
-
 success "🎉🎉🎉 all done 🎉🎉🎉"
 success "Make sure to run 'source ~/.bashrc'"
