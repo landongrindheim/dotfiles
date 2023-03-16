@@ -53,19 +53,16 @@ install_dotfiles() {
 }
 
 install_packages() {
-  if [ "$OSTYPE" == "darwin"* ]; then
+  if [ "$(uname)" = 'Darwin' ]; then
     if [ -n "$(command -v brew 2> /dev/null)" ]; then
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     brew bundle
   else
-    sudo apt-get update -y
-    sudo apt-get install -y --no-install-recommends $(tr '\n' ' ' < ./linux-packages)
-
     # use Vim 9 (for CoPilot)
-    sudo add-apt-repository ppa:jonathonf/vim
-    sudo apt update
-    sudo apt install vim
+    sudo add-apt-repository -y ppa:jonathonf/vim
+    sudo apt update -y
+    sudo apt install -y --no-install-recommends "$(tr '\n' ' ' < $HOME/.linux-packages)"
   fi
 }
 
