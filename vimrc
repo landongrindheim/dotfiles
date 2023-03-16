@@ -92,13 +92,8 @@ set smartindent                        " indent to the right place
 """""""""""""""""" CUSTOM KEY MAPPINGS """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader="\<space>"
-                                       " <c-c>, jk, kj  now act just like <esc>
+                                       " <c-c> now acts just like <esc>
 inoremap <c-c> <esc>
-inoremap jj <esc>
-inoremap jk <esc>
-                                       " buffer navigation
-nnoremap <Tab> :bnext<cr>
-nnoremap <S-Tab> :bprevious<cr>
                                        " split navigation, TmuxNavigate(Dir)
                                        " is used in place of <c-h>, <c-j>, etc
 nnoremap <silent><c-j> :TmuxNavigateDown<cr>
@@ -107,20 +102,14 @@ nnoremap <silent><c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent><c-l> :TmuxNavigateRight<cr>
                                        " auto-indent entire file
 map <leader>i mmgg=G`m
-                                       " convert Ruby hashes to 1.9 syntax
-nnoremap <leader>hr :%s/:\([^=,'"]*\) =>/\1:/gc<cr>
                                        " count matches in current file
 nnoremap <leader>n :%s///gn<cr>
-                                       " use :w!! to save with sudo
-cmap w!! %!sudo tee > /dev/null %
                                        " don't let K open man pages
 nnoremap K <Nop>
                                        " don't enter Ex mode
 nnoremap Q <Nop>
                                        " turn off match highlighting
 nnoremap <leader><leader> :nohl<cr>
-                                       " source this file
-nmap <leader>s :source $MYVIMRC<cr>
                                        " clear all trailing white space
 nmap <leader>w :%s/\s\+$//e<cr>
                                        " navigate ctags with left and right
