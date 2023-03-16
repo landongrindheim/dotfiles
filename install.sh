@@ -61,6 +61,11 @@ install_packages() {
   else
     sudo apt-get update -y
     sudo apt-get install -y --no-install-recommends $(tr '\n' ' ' < ./linux-packages)
+
+    # use Vim 9 (for CoPilot)
+    sudo add-apt-repository ppa:jonathonf/vim
+    sudo apt update
+    sudo apt install vim
   fi
 }
 
@@ -70,7 +75,7 @@ configure_vim() {
   fi
 
   # open Vim, install plugins, then close Vim (exit Vim-Plug window, then Vim)
-  vim +PlugInstall +exit +exit
+  vim +PlugInstall +Copilot_setup +exit +exit
 }
 
 success "🏗️ symlinking dotfiles"
