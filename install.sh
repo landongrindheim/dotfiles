@@ -62,7 +62,7 @@ install_packages() {
     # use Vim 9 (for CoPilot)
     sudo add-apt-repository -y ppa:jonathonf/vim
     sudo apt update -y
-    sudo apt install -y --no-install-recommends "$(tr '\n' ' ' < $HOME/.linux-packages)"
+    xargs sudo apt install -y --no-install-recommends < "$HOME/.linux-packages"
   fi
 }
 
