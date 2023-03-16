@@ -6,4 +6,4 @@ Config files for Git, Bash, Vim and Tmux
 
   `git clone git://github.com/landongrindheim/dotfiles ~/dotfiles`  
   `cd ~/dotfiles`  
-  `bin/setup`  
+  `./install.sh`  
