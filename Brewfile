@@ -15,7 +15,7 @@ brew "bash"
 brew "bash-completion"
 brew "bat"
 brew "ctags"
-brew "elm"
+brew "elm" if OS.mac?
 brew "fish"
 brew "fzf"
 brew "gh"
@@ -25,7 +25,7 @@ brew "htop"
 brew "jq"
 brew "node"
 brew "nvm"
-brew "postgresql"
+brew "postgresql" if OS.mac?
 brew "rbenv"
 brew "shellcheck"
 brew "the_silver_searcher"
@@ -34,12 +34,12 @@ brew "vim"
 brew "wget"
 brew "yarn"
 
-cask "1password"
-cask "docker"
-cask "firefox"
-cask "hammerspoon"
-cask "licecap"
-cask "iterm2"
-cask "karabiner-elements"
-cask "raycast"
-cask "zoom"
+cask "1password" if OS.mac?
+cask "docker" if OS.mac?
+cask "firefox" if OS.mac?
+cask "hammerspoon" if OS.mac?
+cask "licecap" if OS.mac?
+cask "iterm2" if OS.mac?
+cask "karabiner-elements" if OS.mac?
+cask "raycast" if OS.mac?
+cask "zoom" if OS.mac?
