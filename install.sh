@@ -57,13 +57,13 @@ install_packages() {
     if [ -n "$(command -v brew 2> /dev/null)" ]; then
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
-    brew bundle
-  else
-    # use Vim 9 (for CoPilot)
-    sudo add-apt-repository -y ppa:jonathonf/vim
-    sudo apt update -y
-    xargs sudo apt install -y --no-install-recommends < "$HOME/.linux-packages"
+  elif [ "$CODESPACES" = "true" ]; then
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o /tmp/install_homebrew.sh
+    /bin/bash < /tmp/install_homebrew.sh
+    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> "$HOME/.profile"
   fi
+
+  brew bundle
 }
 
 configure_vim() {
