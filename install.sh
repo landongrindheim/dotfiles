@@ -58,10 +58,12 @@ install_packages() {
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
   elif [ "$CODESPACES" = "true" ]; then
-    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o /tmp/install_homebrew.sh
-    /bin/bash < /tmp/install_homebrew.sh
-    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> "$HOME/.profile"
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    if [ -n "$(command -v brew 2> /dev/null)" ]; then
+      curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o /tmp/install_homebrew.sh
+      /bin/bash < /tmp/install_homebrew.sh
+      (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> "$HOME/.profile"
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    fi
   fi
 
   brew bundle
