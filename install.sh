@@ -61,6 +61,7 @@ install_packages() {
     curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o /tmp/install_homebrew.sh
     /bin/bash < /tmp/install_homebrew.sh
     (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> "$HOME/.profile"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
 
   brew bundle
