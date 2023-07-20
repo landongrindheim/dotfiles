@@ -34,7 +34,5 @@
 [init]
   defaultBranch = main
   templatedir = "~/.git_template"
-[includeIf "gitdir:/workspace/"]
-  path = .gitconfig-http
-[includeIf "gitdir:/Users/me/"]
-  path = .gitconfig-ssh
+[includeIf "gitdir:/workspaces/"]
+  path = .gitconfig-codespaces
