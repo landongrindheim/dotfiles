@@ -12,7 +12,7 @@ tap "homebrew/cask"
 tap "homebrew/bundle"
 
 brew "bash"
-brew "bash-completion"
+brew "bash-completion@2"
 brew "bat"
 brew "ctags"
 brew "elm" if OS.mac?
