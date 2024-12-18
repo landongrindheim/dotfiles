@@ -54,7 +54,7 @@ install_dotfiles() {
 
 install_packages() {
   if [ "$(uname)" = 'Darwin' ]; then
-    if [ -n "$(command -v brew 2> /dev/null)" ]; then
+    if ! command -v brew > /dev/null; then
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
   elif [ "$CODESPACES" = "true" ]; then
