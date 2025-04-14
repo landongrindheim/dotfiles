@@ -41,4 +41,5 @@ cask "licecap" if OS.mac?
 cask "iterm2" if OS.mac?
 cask "karabiner-elements" if OS.mac?
 cask "raycast" if OS.mac?
+cask "there" if OS.mac?
 cask "zoom" if OS.mac?
