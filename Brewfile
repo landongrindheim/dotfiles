@@ -1,15 +1,6 @@
 # Thanks to @jasonrudolph for introducing me to Brewfile
 #
-# To use, first ensure that homebrew-cask is installed:
-#
-#   brew tap homebrew/cask
-#
-# Then, run `brew bundle`:
-#
 # brew bundle --file=<path-to-Brewfile>
-
-tap "homebrew/cask"
-
 brew "bash"
 brew "bash-completion@2"
 brew "bat"
