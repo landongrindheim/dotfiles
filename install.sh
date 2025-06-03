@@ -70,6 +70,24 @@ install_packages() {
   brew bundle
 }
 
+install_js() {
+  mkdir -p "$HOME/.nvm"
+
+  if ! command -v nvm > /dev/null; then
+    PROFILE=/dev/null curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    success "✅ nvm installed"
+  fi
+
+  source "$HOME/.bashrc.d/25-nvm"
+
+  if ! command -v node > /dev/null; then
+    # install the latest (long-term-supported) Node and make it the default
+    nvm install --lts
+    nvm use --lts
+    nvm alias default lts/*
+  fi
+}
+
 configure_vim() {
   if [ ! -d vim/autoload/plug.vim ];then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -84,6 +102,9 @@ install_dotfiles
 
 success "🏗️ installing packages"
 install_packages
+
+success "🏗️ installing JavaScript"
+install_js
 
 success "🏗️ configuring Vim"
 configure_vim

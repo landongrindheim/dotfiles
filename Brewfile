@@ -13,8 +13,6 @@ brew "git"
 brew "gnupg"
 brew "htop"
 brew "jq"
-brew "node"
-brew "nvm"
 brew "postgresql" if OS.mac?
 brew "rbenv"
 brew "shellcheck"
