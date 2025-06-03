@@ -1,7 +1,7 @@
 [user]
   email = landon.grindheim@gmail.com
   name = Landon Grindheim
-  signingkey = 194BD51174562CEC
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMzJJU68SM/C2T5Ww3S3HkzfNJy4HHR/Rokz6TDJLjWR
 [github]
   user = landongrindheim
 [alias]
@@ -36,3 +36,7 @@
   templatedir = "~/.git_template"
 [includeIf "gitdir:/workspaces/"]
   path = .gitconfig-codespaces
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
