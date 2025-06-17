@@ -1,7 +1,7 @@
 [user]
   email = landon.grindheim@gmail.com
   name = Landon Grindheim
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMzJJU68SM/C2T5Ww3S3HkzfNJy4HHR/Rokz6TDJLjWR
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMzJJU68SM/C2T5Ww3S3HkzfNJy4HHR/Rokz6TDJLjWR My SSH Key
 [github]
   user = landongrindheim
 [alias]
