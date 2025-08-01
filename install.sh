@@ -21,10 +21,13 @@ symlink() {
 }
 
 install_dotfiles() {
-  for symlinkable in [[:lower:]]*; do
-    destination="$HOME/.${symlinkable}"
-    if [ -f "$destination" -o -d "$destination" -o -L "$destination" ]; then
-      warning "⚠️  ~/$(basename $destination) already exists. Override? [y]es [n]o [q]uit"
+  # List of dotfiles to symlink (explicit is better than glob patterns)
+  dotfiles="bashrc ctags gitconfig gitignore tmux.conf vimrc"
+
+  for file in $dotfiles; do
+    destination="$HOME/.$file"
+    if [ -f "$destination" ] || [ -d "$destination" ] || [ -L "$destination" ]; then
+      warning "⚠️  ~/.$file already exists. Override? [y]es [n]o [q]uit"
 
       if [ "$CODESPACES" = "true" ]; then
         response="y"
@@ -35,10 +38,10 @@ install_dotfiles() {
       case "$response" in
         Y | y )
           rm -rf "$destination"
-          symlink "$(pwd -P)/$symlinkable" "$destination"
+          symlink "$(pwd -P)/$file" "$destination"
           ;;
         N | n )
-          success "🆗"
+          success "🆗 skipped $file"
           continue
           ;;
         Q | q )
@@ -47,7 +50,37 @@ install_dotfiles() {
           ;;
       esac
     else
-      symlink "$(pwd -P)/$symlinkable" "$destination"
+      symlink "$(pwd -P)/$file" "$destination"
+    fi
+  done
+
+  # Handle directories that need special treatment
+  for dir in bashrc.d bash_completion.d bin git_template vim; do
+    destination="$HOME/.$dir"
+    if [ -e "$destination" ]; then
+      warning "⚠️  ~/.$dir already exists. Override? [y]es [n]o [q]uit"
+      if [ "$CODESPACES" = "true" ]; then
+        response="y"
+      else
+        read response
+      fi
+
+      case "$response" in
+        Y | y )
+          rm -rf "$destination"
+          symlink "$(pwd -P)/$dir" "$destination"
+          ;;
+        N | n )
+          success "🆗 skipped $dir"
+          continue
+          ;;
+        Q | q )
+          error "☠️  exiting now ☠️"
+          exit 0
+          ;;
+      esac
+    else
+      symlink "$(pwd -P)/$dir" "$destination"
     fi
   done
 }
@@ -74,7 +107,7 @@ install_js() {
   mkdir -p "$HOME/.nvm"
 
   if ! command -v nvm > /dev/null; then
-    PROFILE=/dev/null curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    PROFILE=/dev/null curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
     success "✅ nvm installed"
   fi
 
@@ -89,7 +122,7 @@ install_js() {
 }
 
 configure_vim() {
-  if [ ! -d vim/autoload/plug.vim ];then
+  if [ ! -f ~/.vim/autoload/plug.vim ]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   fi
 
