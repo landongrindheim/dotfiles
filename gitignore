@@ -2,3 +2,4 @@
 vendor/bundle
 vendor/gems
 vim/plugged/
+.claude/
