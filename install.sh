@@ -83,6 +83,43 @@ install_dotfiles() {
       symlink "$(pwd -P)/$dir" "$destination"
     fi
   done
+
+  # Handle XDG Base Directory subdirectories (create ~/.config if needed)
+  mkdir -p "$HOME/.config"
+
+  for config_dir in config/*; do
+    [ -d "$config_dir" ] || continue
+    dirname=$(basename "$config_dir")
+    destination="$HOME/.config/$dirname"
+
+    if [ -e "$destination" ]; then
+      warning "⚠️  ~/.config/$dirname already exists. Override? [y]es [n]o [q]uit"
+      if [ "$CODESPACES" = "true" ]; then
+        response="y"
+      else
+        read response
+      fi
+
+      case "$response" in
+        Y | y )
+          rm -rf "$destination"
+          ln -s "$(pwd -P)/$config_dir" "$destination"
+          success "🔗 symlinking ~/.config/$dirname"
+          ;;
+        N | n )
+          success "🆗 skipped $dirname"
+          continue
+          ;;
+        Q | q )
+          error "☠️  exiting now ☠️"
+          exit 0
+          ;;
+      esac
+    else
+      ln -s "$(pwd -P)/$config_dir" "$destination"
+      success "🔗 symlinking ~/.config/$dirname"
+    fi
+  done
 }
 
 install_packages() {
