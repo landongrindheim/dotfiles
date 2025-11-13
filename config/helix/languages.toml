@@ -1,0 +1,20 @@
+[[language]]
+name = "go"
+language-servers = [ "gopls" ]
+auto-format = true
+
+# You may optionally define goimports as a standalone formatter if you
+# prefer Helix to call it directly on save, which can override gopls's formatting:
+# formatter = { command = "goimports" }
+
+
+# 2. Configuration for the 'gopls' language server
+[language-server.gopls.config]
+"formatting.gofumpt" = true
+"ui.diagnostic.staticcheck" = true
+"formatting.local" = "goimports"
+
+
+[language-server.gopls.config.analyses]
+unusedparams = true
+unreachable = true
