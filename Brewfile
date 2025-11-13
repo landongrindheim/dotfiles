@@ -11,6 +11,7 @@ brew "fzf"
 brew "gh"
 brew "git"
 brew "gnupg"
+brew "go"
 brew "htop"
 brew "jq"
 brew "postgresql" if OS.mac?
