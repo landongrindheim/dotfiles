@@ -14,7 +14,6 @@ brew "gnupg"
 brew "go"
 brew "htop"
 brew "jq"
-brew "postgresql" if OS.mac?
 brew "rbenv"
 brew "shellcheck"
 brew "the_silver_searcher"
@@ -31,5 +30,3 @@ cask "licecap" if OS.mac?
 cask "iterm2" if OS.mac?
 cask "karabiner-elements" if OS.mac?
 cask "raycast" if OS.mac?
-cask "there" if OS.mac?
-cask "zoom" if OS.mac?
