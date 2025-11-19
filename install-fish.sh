@@ -1,154 +1,89 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -e
 
-success() {
-  echo "$(tput setaf 2)$*$(tput setaf 9) "
-}
+DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 warning() {
-  echo "$(tput setaf 3)$*$(tput setaf 9)"
+  echo -e "\033[0;33m$1\033[0m" # Yellow text for warnings
 }
 
-error() {
-  echo "$(tput setaf 1)$*$(tput setaf 9)"
-}
-
-symlink() {
-  local origin=$1 destination=$2
-  ln -s "$origin" "$destination"
-  success "🔗 symlinking $destination"
-}
-
-install_fish_config() {
-  # Create fish config directory
-  mkdir -p "$HOME/.config/fish"
-
-  # Symlink the fish configuration
-  destination="$HOME/.config/fish"
-  if [ -L "$destination" ]; then
-    warning "⚠️  ~/.config/fish symlink already exists. Override? [y]es [n]o [q]uit"
-
-    if [ "$CODESPACES" = "true" ]; then
-      response="y"
-    else
-      read response
-    fi
-
-    case "$response" in
-      Y | y )
-        rm -rf "$destination"
-        symlink "$(pwd -P)/config/fish" "$destination"
-        ;;
-      N | n )
-        success "🆗 skipped fish config"
-        ;;
-      Q | q )
-        error "☠️  exiting now ☠️"
-        exit 0
-        ;;
-    esac
-  elif [ -d "$destination" ]; then
-    warning "⚠️  ~/.config/fish directory already exists. This will merge configurations."
-    warning "Continue? [y]es [n]o [q]uit"
-
-    if [ "$CODESPACES" = "true" ]; then
-      response="y"
-    else
-      read response
-    fi
-
-    case "$response" in
-      Y | y )
-        # Copy files instead of symlinking for existing directory
-        cp -r "$(pwd -P)/config/fish/"* "$destination/"
-        success "📁 copied fish config files"
-        ;;
-      N | n )
-        success "🆗 skipped fish config"
-        ;;
-      Q | q )
-        error "☠️  exiting now ☠️"
-        exit 0
-        ;;
-    esac
-  else
-    symlink "$(pwd -P)/config/fish" "$destination"
-  fi
+success() {
+  echo -e "\033[0;32m$1\033[0m" # Green text for success
 }
 
 install_fish_shell() {
-  # Install fish if not present
-  if ! command -v fish > /dev/null; then
-    if [ "$(uname)" = 'Darwin' ]; then
-      brew install fish
-    elif command -v apt-get > /dev/null; then
-      sudo apt-get update
-      sudo apt-get install -y fish
-    else
-      error "❌ Could not install fish. Please install it manually."
-      exit 1
-    fi
-    success "🐟 fish shell installed"
+  echo "🏗️ Installing fish shell..."
+  if command -v fish >/dev/null 2>&1; then
+    echo "🐟 fish shell already installed"
   else
-    success "🐟 fish shell already installed"
-  fi
-
-  # Add fish to /etc/shells if not already there
-  if ! grep -q "$(command -v fish)" /etc/shells; then
-    echo "$(command -v fish)" | sudo tee -a /etc/shells
-    success "🐟 fish added to /etc/shells"
-  fi
-
-  # Optionally change default shell
-  if [ "$SHELL" != "$(command -v fish)" ]; then
-    warning "🐟 Would you like to make fish your default shell? [y]es [n]o"
-    if [ "$CODESPACES" = "true" ]; then
-      response="y"
-    else
-      read response
-    fi
-
-    case "$response" in
-      Y | y )
-        chsh -s "$(command -v fish)"
-        success "🐟 default shell changed to fish"
-        ;;
-      N | n )
-        success "🆗 keeping current shell"
-        ;;
-    esac
+    warning "⚠️ fish shell not found. Please install it via Homebrew: brew install fish"
+    exit 1
   fi
 }
 
-install_bass_if_needed() {
-  # Bass is needed for NVM integration
-  if command -v fish > /dev/null; then
-    fish -c "
-      if not functions -q bass
-        echo 'Installing fisher package manager and bass...'
-        curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
-        fisher install edc/bass
-      else
-        echo 'bass already installed'
-      end
-    " 2>/dev/null || {
-      warning "⚠️  Could not install bass automatically."
-      warning "To install bass for NVM support, run:"
-      warning "  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source"
-      warning "  fisher install edc/bass"
-    }
+setup_fish_config() {
+  echo "🏗️ Installing fish configuration"
+  CONFIG_DIR="$HOME/.config/fish"
+
+  # Check if the desired target directory for the symlink already exists
+  if [[ -L "$CONFIG_DIR" ]]; then
+      echo "🆗 ~/.config/fish symlink already exists and points to $CONFIG_DIR"
+  elif [[ -d "$CONFIG_DIR" ]]; then
+      warning "⚠️ ~/.config/fish directory already exists (not a symlink)."
+      read -r -p "Override and replace with symlink? [y/N/q] " choice
+      choice=${choice:-n}
+      case "$choice" in
+          y|Y)
+              rm -rf "$CONFIG_DIR"
+              ln -s "$DOTFILES_ROOT/fish" "$CONFIG_DIR"
+              success "✅ Symlinked $CONFIG_DIR to $DOTFILES_ROOT/fish"
+              ;;
+          *)
+              echo "🆗 skipped fish config setup."
+              ;;
+      esac
+  else
+      ln -s "$DOTFILES_ROOT/fish" "$CONFIG_DIR"
+      success "✅ Symlinked $CONFIG_DIR to $DOTFILES_ROOT/fish"
   fi
 }
 
-success "🏗️ installing fish shell"
+install_fisher_plugin_manager() {
+  echo "🏗️ Installing Fisher plugin manager"
+
+  # 1. Check if Fisher is available in the current shell environment
+  if command -v fish >/dev/null 2>&1 && fish -c "functions -q fisher" >/dev/null 2>&1; then
+      echo "🐟 Fisher already installed (function available in fish)."
+      return
+  fi
+
+  # 2. Install Fisher persistently. This *must* be done inside fish -c
+  if command -v fish >/dev/null 2>&1; then
+      # This command installs Fisher and makes it persistent across sessions
+      fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
+      success "✅ Fisher installed."
+  else
+      warning "⚠️ Cannot install Fisher: fish shell not found."
+  fi
+}
+
+install_fish_plugins() {
+  echo "🏗️ Installing Fish plugins from fish_plugins manifest"
+
+  if command -v fish >/dev/null 2>&1 && fish -c "functions -q fisher" >/dev/null 2>&1; then
+    # This command reads the fish_plugins file and installs/updates all listed plugins
+    fish -c "fisher update"
+    success "✅ Fish plugins installed/updated."
+  else
+    warning "⚠️ Cannot install plugins: Fisher is not available."
+  fi
+}
+
 install_fish_shell
+setup_fish_config
+install_fisher_plugin_manager
+install_fish_plugins
 
-success "🏗️ installing fish configuration"
-install_fish_config
-
-success "🏗️ installing bass for bash compatibility"
-install_bass_if_needed
-
-success "🎉🎉🎉 fish setup complete 🎉🎉🎉"
-success "Start a new terminal or run 'exec fish' to use fish shell"
+success "🎉🎉🎉 Fish setup complete 🎉🎉🎉"
+echo "Note: To use the new settings, start a new terminal or run 'exec fish'."

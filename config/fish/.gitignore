@@ -1,0 +1,20 @@
+# ----------------------------------------
+# FISHER PLUGIN MANAGER FILES
+# ----------------------------------------
+completions/fisher.fish
+conf.d/bass.fish
+conf.d/nvm.fish
+
+# ----------------------------------------
+# FUNCTIONS/COMPLETIONS FROM PLUGINS
+# ----------------------------------------
+functions/bass.fish
+functions/fisher.fish
+functions/nvm.fish
+functions/_nvm*
+completions/nvm.fish
+
+# ----------------------------------------
+# FISH CACHE & LOCAL STATE FILES
+# ----------------------------------------
+fish_variables
