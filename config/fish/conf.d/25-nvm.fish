@@ -21,3 +21,15 @@ if functions -q bass
 else
     echo "Note: bass not available, nvm integration disabled. Install with: fisher install edc/bass"
 end
+
+# Load a Node version if NVM is available.
+if functions -q nvm
+    # Set a default version alias if you haven't already.
+    # Otherwise, 'nvm use default' won't work.
+    if nvm alias default >/dev/null 2>&1
+        # Use the default version set by NVM
+        nvm use default >/dev/null 2>&1
+    else
+        nvm use stable >/dev/null 2>&1
+    end
+end
