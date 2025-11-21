@@ -1,6 +1,0 @@
-# vim: set filetype=sh:
-
-if [ -f ~/.asdf/asdf.sh ]; then
-  source ~/.asdf/asdf.sh
-  source ~/.asdf/completions/asdf.bash
-fi
