@@ -1,7 +1,7 @@
 # ----------------------------------------
 # FISHER PLUGIN MANAGER FILES
 # ----------------------------------------
-completions/fisher.fish
+completions/*
 conf.d/bass.fish
 conf.d/nvm.fish
 
