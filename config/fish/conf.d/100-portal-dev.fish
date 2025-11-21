@@ -7,7 +7,7 @@ end
 
 # Mise (version manager)
 if command -v mise &> /dev/null
-    eval (mise activate fish)
+    fish_add_path ~/.local/share/mise/shims
 end
 
 # AWS Configuration
