@@ -141,15 +141,21 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""" FZF CONFIGURATION """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <C-p> :GFiles <cr>
-let g:fzf_action = {
-      \ 'ctrl-s': 'split',
-      \ 'ctrl-x': 'split',
-      \ 'ctrl-v': 'vsplit'
-      \ }
+let g:project_files_command = 'fd --type f --hidden --max-depth 8 --exclude .git --exclude node_modules --exclude vendor --exclude app/javascript/vendor'
 
-command! -bang -nargs=? -complete=dir GFiles
-    \ call fzf#vim#gitfiles(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat --style=numbers --theme="Solarized (dark)" --color=always {}']}, <bang>0)
+command! -bang ProjectFiles call fzf#run(fzf#wrap({
+\   'source': g:project_files_command,
+\   'options': ['--layout=reverse', '--info=inline']
+\ }, <bang>0))
+
+nnoremap <C-p> :ProjectFiles<cr>
+
+let g:fzf_action = {
+    \ 'ctrl-s': 'split',
+    \ 'ctrl-x': 'split',
+    \ 'ctrl-v': 'vsplit'
+    \ }
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""" FILES AND BACKUPS """""""""""""""""""""""""""""""""""""""""
