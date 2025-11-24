@@ -27,8 +27,8 @@ brew "yarn"
 cask "1password" if OS.mac?
 cask "docker" if OS.mac?
 cask "firefox" if OS.mac?
+cask "ghostty" if OS.mac?
 cask "hammerspoon" if OS.mac?
 cask "licecap" if OS.mac?
-cask "iterm2" if OS.mac?
 cask "karabiner-elements" if OS.mac?
 cask "raycast" if OS.mac?

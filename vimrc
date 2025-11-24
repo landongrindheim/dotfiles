@@ -11,7 +11,6 @@ set encoding=utf8                      " use UTF-8 encoding
 call plug#begin('~/.vim/plugged')      " load plugins
 
 
-Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'elixir-lang/vim-elixir'
 Plug 'ElmCast/elm-vim'
@@ -21,6 +20,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
+Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -41,11 +41,12 @@ set autoread                           " auto-read file when it has changed
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""" COLORS AND SYNTAX HIGHLIGHTING """""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-silent! colorscheme solarized          " use solarized colorscheme
-set background=dark                    " dark theme by default
-set t_Co=256                           " use screen-256 colors
 
 syntax on                              " turn on syntax highlighting
+set termguicolors                      " enable true color support
+set background=dark                    " dark theme by default
+colorscheme solarized8                 " use solarized colorscheme
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
