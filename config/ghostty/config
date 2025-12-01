@@ -1,1 +1,2 @@
 theme = Builtin Solarized Dark
+command = /opt/homebrew/bin/fish
