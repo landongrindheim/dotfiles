@@ -9,7 +9,7 @@ alias dotfiles='cd ~/dotfiles'
 
 # use `g` like git
 _g() {
-  if [[ $# > 0 ]]; then
+  if [[ $# -gt 0 ]]; then
     git "$@"
   else
     git status
@@ -33,8 +33,9 @@ _gg() {
 alias gg=_gg
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  if [ -f $(brew --prefix)/bin/ctags ]; then
-    alias ctags="`brew --prefix`/bin/ctags"
+  if [ -f "$(brew --prefix)/bin/ctags" ]; then
+    # shellcheck disable=SC2139  # intentional: resolve brew prefix at define time
+    alias ctags="$(brew --prefix)/bin/ctags"
   fi
 else
   alias pbcopy='xclip -selection clipboard'

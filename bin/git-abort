@@ -18,5 +18,5 @@ elif [[ -e .git/MERGE_MODE ]] ; then
     exec git merge --abort "$@"
 else
     echo git-abort: unknown state
-    exit -1
+    exit 1
 fi

@@ -1,14 +1,16 @@
 # vim: set filetype=sh:
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion
+  if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+    # shellcheck source=/dev/null
+    source "$(brew --prefix)/etc/bash_completion"
   fi
 fi
 
-for file in $HOME/.bash_completion.d/*; do
+for file in "$HOME"/.bash_completion.d/*; do
   # if the file is a readable file or a symlink
-  if [ \( -f $file -o -h $file \) -a -r $file ]; then
-    source $file
+  if { [ -f "$file" ] || [ -h "$file" ]; } && [ -r "$file" ]; then
+    # shellcheck source=/dev/null
+    source "$file"
   fi
 done

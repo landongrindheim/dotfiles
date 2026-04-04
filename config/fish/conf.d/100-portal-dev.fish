@@ -2,12 +2,16 @@
 
 # Homebrew
 if test -x /opt/homebrew/bin/brew
-    eval (/opt/homebrew/bin/brew shellenv)
+  eval (/opt/homebrew/bin/brew shellenv)
 end
 
 # Mise (version manager)
 if command -v mise &> /dev/null
-    fish_add_path ~/.local/share/mise/shims
+  fish_add_path ~/.local/share/mise/shims
+end
+
+if command -v npm &> /dev/null
+  fish_add_path (npm config get prefix)/bin
 end
 
 # AWS Configuration

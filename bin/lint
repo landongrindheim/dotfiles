@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+#
+# Lint dotfiles: validate Fish syntax and shellcheck Bash/sh scripts.
+# Usage: lint [fish|sh]   (no args runs all checks)
+
+set -e
+
+DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+lint_fish() {
+  echo "Checking Fish syntax..."
+  local count=0
+  while IFS= read -r -d '' file; do
+    fish --no-execute "$file"
+    count=$((count + 1))
+  done < <(find "$DOTFILES_ROOT/config/fish" -name '*.fish' -print0)
+  echo "  $count fish files OK"
+}
+
+lint_sh() {
+  echo "Checking shell scripts with shellcheck..."
+  local count=0
+  local files=()
+
+  # Gather bashrc.d files
+  for f in "$DOTFILES_ROOT"/bashrc.d/[0-9]*; do
+    [ -f "$f" ] && files+=("$f")
+  done
+
+  # Gather bin scripts (skip non-shell files)
+  for f in "$DOTFILES_ROOT"/bin/*; do
+    [ -f "$f" ] || continue
+    head -1 "$f" | grep -qE '(bash|sh)' && files+=("$f")
+  done
+
+  # Install scripts
+  for f in "$DOTFILES_ROOT"/install*.sh; do
+    [ -f "$f" ] && files+=("$f")
+  done
+
+  shellcheck --shell=bash --severity=warning "${files[@]}"
+  echo "  ${#files[@]} shell files OK"
+}
+
+case "${1:-all}" in
+  fish) lint_fish ;;
+  sh)   lint_sh ;;
+  all)  lint_fish; lint_sh ;;
+  *)    echo "Usage: lint [fish|sh]" >&2; exit 1 ;;
+esac
